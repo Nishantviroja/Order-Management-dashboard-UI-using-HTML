@@ -9,7 +9,7 @@ $(function() {
     var options = {
         series: [{
             name: 'PRODUCT A',
-            data: [44, 55, 41, 43]
+            data: [540, 695, 501, 770]
         }],
         chart: {
             type: 'bar',
@@ -40,7 +40,7 @@ $(function() {
             },
         },
         xaxis: {
-            categories: ['2017', '2018', '2019', '2020'],
+            categories: ['2019', '2020', '2021', '2022'],
         },
         legend: {
             position: 'bottom',
@@ -86,7 +86,7 @@ $(function() {
         },
         
         xaxis: {
-            categories: ['2017', '2018', '2019', '2020'],
+            categories: ['2019', '2020', '2021', '2022'],
         },
         yaxis: {
             opposite: true
@@ -101,7 +101,7 @@ $(function() {
     var options = {
         series: [{
             name: 'PRODUCT A',
-            data: [56, 50, 32, 9]
+            data: [562, 580, 632, 789]
         }],
         chart: {
             type: 'bar',
@@ -164,7 +164,7 @@ $(function() {
                 }
             }
         }],
-        labels: ['Plan 1', 'Plan 2', 'Plan 3'],
+        labels: ['IT', 'ML', 'MB'],
         colors: ['var(--chart-color1)', 'var(--chart-color2)', 'var(--chart-color3)'],
         dataLabels: {
             enabled: false
