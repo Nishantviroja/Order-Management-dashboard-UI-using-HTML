@@ -151,41 +151,21 @@
 
                 <form id="signUpForm" class="row g-1 p-0 p-md-4">
 
-                  <div class="col-12 col-lg-8 pe-lg-1">
+                  <div class="col-12 col-lg-6 pe-lg-1">
+                    <div class="mb-2">
+                      <label class="form-label">Company code</label>
+                      <input type="text" class="form-control form-control-lg border-1 shadow-sm" id="comp_code"
+                        placeholder="Company Code" required />
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6 pe-lg-1">
                     <div class="mb-2">
                       <label class="form-label">Company Name</label>
-                      <input class="form-control form-control-lg border-1 shadow-sm" id="comp_code"
+                      <input type="" class="form-control form-control-lg border-1 shadow-sm" id="comp_name"
                         placeholder="Company Name" required />
                     </div>
                   </div>
-                  <div class="col-12 col-lg-4 ps-lg-1">
-                    <div class="mb-2">
-                      <label class="form-label">Email</label>
-                      <input class="form-control form-control-lg border-1 shadow-sm" id="email" type="email"
-                        placeholder="name@example.com" required />
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-4 px-lg-1">
-                    <div class="mb-2">
-                      <label class="form-label">Mobile</label>
-                      <input class="form-control form-control-lg border-1 shadow-sm" id="mobile" type="number"
-                        placeholder="98986554**" required />
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-4 ps-lg-1">
-                    <div class="mb-2">
-                      <label class="form-label">Password</label>
-                      <input type="password" class="form-control form-control-lg pass border-1 shadow-sm" id="password"
-                        placeholder="8+ characters required" required />
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-4 ps-lg-1">
-                    <div class="mb-2">
-                      <label class="form-label" id="cpassword">Confirm password</label>
-                      <input type="password" class="form-control form-control-lg confrm-pass border-1 shadow-sm"
-                        id="confrm-pass" placeholder="8+ characters required" required />
-                    </div>
-                  </div>
+                
                   <hr class="my-4">
                   <div class="col-12 text-capitalize ">
                     <h5 class="fw-bold text-gradient">Add Address</h5>
@@ -250,6 +230,72 @@
                     <p id="address_table"></p>
                     <hr class="my-4">
                   </div>
+                  
+                  <div class="col-12 text-capitalize ">
+                    <h5 class="fw-bold text-gradient">Add Contact Person</h5>
+                  </div>
+
+                  <div class="row g-1">
+                    
+                    <div class="col-12 col-lg-6 pe-lg-1">
+                      <div class="mb-2">
+                        <label class="form-label">Name</label>
+                        <input
+                          type="text"
+                          class="form-control form-control-lg confrm-pass border-1 shadow-sm"
+                          id="name"
+                          placeholder="eg. Robert Wadra"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 ps-lg-1">
+                      <div class="mb-2">
+                        <label class="form-label">Designation</label>
+                        <input
+                          type="text"
+                          class="form-control form-control-lg confrm-pass border-1 shadow-sm"
+                          id="designation"
+                          placeholder="eg. Manager"
+                        />
+                      </div>
+                    </div>
+        
+                    <div class="col-12 col-lg-6 pe-lg-1">
+                      <div class="mb-2">
+                        <label class="form-label">Email id</label>
+                        <input
+                          type="text"
+                          class="form-control form-control-lg confrm-pass border-1 shadow-sm"
+                          id="email"
+                          placeholder="adsgsh@gmail.com"
+                        />
+                      </div>
+                    </div>
+                    
+                    <div class="col-12 col-lg-6 ps-lg-1 ">
+                      <div class="mb-2">
+                        <label class="form-label">Mobile</label>
+                        <input
+                          type="number"
+                          class="form-control form-control-lg confrm-pass border-1 shadow-sm"
+                          id="mobile"
+                          placeholder="96789098**"
+                        />
+                      </div>
+                    </div>  
+                  </div>
+                  <div class="col-12 text-center mt-4">
+                    <button onclick="submit_contact_person()" class="btn btn-block btn-primary fw-bold px-3"
+                      >
+                      Add Contact Person
+                    </button>
+                  </div>
+
+                  <div class="col-12 mb-1">
+                    
+                    <p id="contact_person_table"></p>
+                    <hr class="my-4">
+                  </div>
 
                   <div class="col-12 text-end mt-4">
                     <button type="submit" class="btn btn-block btn-primary fw-bold px-5">
@@ -275,25 +321,231 @@
     <script src="../assets/bundles/libscripts.bundle.js"></script>
 
     <!-- Plugin Js -->
-    <script src="../assets/bundles/apexcharts.bundle.js"></script>
+    
     <script src="../assets/bundles/dataTables.bundle.js"></script>
 
     <!-- Jquery Page Js -->
     <script src="../assets/js/template.js"></script>
     <script src="../js/page/index.js"></script>
     <script>
-        $('#myDataTable_no_filter')
-            .addClass('nowrap')
-            .dataTable({
-                responsive: true,
-                searching: false,
-                paging: false,
-                ordering: false,
-                info: false,
-                columnDefs: [
-                    // { targets: [-1, -3], className: 'dt-body-right' }
-                ]
-            });
+      $("#myDataTable_no_filter").addClass("nowrap").dataTable({
+        responsive: true,
+        searching: false,
+        paging: false,
+        ordering: false,
+        info: false,
+        columnDefs: [
+          // { targets: [-1, -3], className: 'dt-body-right' }
+        ],
+      });
+
+   
+      //setting address type ends
+      var table_open =
+        "<table id='myDataTable_no_filter' style='width: 100%;'' class='table myDataTable align-middle table-striped mb-0'>";
+      var table_close = "</table>";
+
+      //setting address
+
+      var address = [];
+    function delete_an_address(address_num) {
+      // e.preventDefault();
+      if (address.length == 1) address = [];
+      else address.splice(address_num, 1);
+      console.log("address length= " + address.length);
+      update_address();
+      alert("address data delete successfully")
+    }
+    function update_address() {
+      var address_table = "";
+      address_table += "<thead>";
+      address_table += "<tr>";
+      address_table += "<th>" + "#" + "</th>";
+      address_table += "<th>" + "Address Type" + "</th>";
+      address_table += "<th>" + "Street" + "</th>";
+      address_table += "<th>" + "Area" + "</th>";
+      
+      address_table += "<th>" + "City" + "</th>";
+      
+      address_table += "<th>" + "Country" + "</th>";
+      address_table += "<th>" + "Post code" + "</th>";
+      address_table += "<th>" + "Delete" + "</th>";
+      address_table += "</tr>";
+      address_table += "</thead>";
+      address_table += "<tbody>";
+      for (
+        var address_num = 0;
+        address_num < address.length;
+        address_num = address_num + 1
+      ) {
+        console.log(address_num);
+        address_table += "<tr>";
+        address_table += "<td>" + (address_num + 1) + "</td>";
+        address_table += "<td>" + address[address_num]["street"] + "</td>";
+        address_table += "<td>" + address[address_num]["street2"] + "</td>";
+        address_table += "<td>" + address[address_num]["area"] + "</td>";
+        address_table += "<td>" + address[address_num]["city"] + "</td>";
+        address_table += "<td>" + address[address_num]["country"] + "</td>";
+        address_table += "<td>" + address[address_num]["zip_code"] + "</td>";
+        address_table +=
+          "<td>" +
+          "<button type='button' class='px-3 text-end btn justify-center btn-primary btn-sm ' data-bs-toggle='tooltip' data-bs-placement='top' title='Delete' onclick='delete_an_address(" +
+          address_num +
+          ")'><i class='fa fa-trash'></i></button>" +
+          "</td>";
+        address_table += "</tr>";
+      }
+      address_table += "</tbody>";
+      $("#address_table").html(table_open + address_table + table_close);
+    }
+
+    // $("#set_address_form").submit(function (e) {
+    function submit_address() {
+      // e.preventDefault();
+      console.log("working");
+      
+      var street = $("#street").val();
+      var street2 = $("#street2").val();
+      var area = $("#area").val();
+      
+      var city = $("#city").val();
+      
+      var country = $("#country").val();
+      var zip_code = $("#zip_code").val();
+
+      address = [
+        ...address,
+        {
+          street: street,
+          street2: street2,
+          area: area,
+          city: city,
+          country: country,
+          zip_code: zip_code
+        },
+      ];
+     
+      $("#city").val("");
+      $("#street").val("");
+      $("#street2").val("");
+      
+      $("#area").val("");
+      
+      $("#country").val("");
+      $("#zip_code").val("");
+      update_address();
+    }
+
+      //setting address ends
+
+      //setting setting contact person
+
+      function delete_contact_person(contact_person_num) {
+        contact_persons.splice(contact_person_num, 1);
+        update_contact_person();
+        alert("contact data delete successfully")
+      }
+      function update_contact_person() {
+        var contact_person_table = "";
+        contact_person_table += "<thead>";
+        contact_person_table += "<tr>";
+        contact_person_table += "<th>" + "#" + "</th>";
+        contact_person_table += "<th>" + "Name" + "</th>";
+        contact_person_table += "<th>" + "Designation" + "</th>";
+        contact_person_table += "<th>" + "Email" + "</th>";
+        contact_person_table += "<th>" + "Mobile" + "</th>";
+        contact_person_table += "<th>" + "Delete" + "</th>";
+        contact_person_table += "</tr>";
+        contact_person_table += "</thead>";
+        contact_person_table += "<tbody>";
+        for (
+          var contact_person_num = 0;
+          contact_person_num < contact_persons.length;
+          contact_person_num++
+        ) {
+          contact_person_table += "<tr>";
+          contact_person_table += "<td>" + (contact_person_num + 1) + "</td>";
+          contact_person_table +=
+            "<td>" + contact_persons[contact_person_num]["name"] + "</td>";
+          contact_person_table +=
+            "<td>" +
+            contact_persons[contact_person_num]["designation"] +
+            "</td>";
+          contact_person_table +=
+            "<td>" + contact_persons[contact_person_num]["email"] + "</td>";
+          contact_person_table +=
+            "<td>" + contact_persons[contact_person_num]["mobile"] + "</td>";
+          contact_person_table +=
+            
+            "<td>" +
+            "<button type='button' class='px-3 text-end btn justify-center btn-primary btn-sm ' data-bs-toggle='tooltip' data-bs-placement='top' title='Delete' onclick='delete_contact_person(" +
+            contact_person_num +
+            ")'><i class='fa fa-trash'></i></button>" +
+            "</td>";
+          contact_person_table += "</tr>";
+        }
+        contact_person_table += "</tbody>";
+
+        $("#contact_person_table").html(
+          table_open + contact_person_table + table_close
+        );
+      }
+
+      var contact_persons = [];
+
+      function submit_contact_person() {
+        // e.preventDefault();
+        console.log("working");
+
+        
+        var mobile = $("#mobile").val();
+        var designation = $("#designation").val();
+        var email = $("#email").val();
+        var name = $("#name").val();
+
+        console.log(street);
+        contact_persons = [
+          ...contact_persons,
+          {
+           
+            mobile: mobile,
+            designation: designation,
+            email: email,
+            name: name,
+          },
+        ];
+        // address[address_num];
+
+        
+        $("#mobile").val("");
+        $("#designation").val("");
+        $("#email").val("");
+        $("#name").val("");
+        update_contact_person();
+      }
+
+      //setting contact person ends
+
+      //    register user submission
+      $("#signUpForm").submit(function (event) {
+        event.preventDefault();
+        alert("data saved successfully")
+        console.log("running");
+        var comp_code = $("#comp_code").val();
+        var comp_name = $("#comp_name").val();
+        
+       
+        console.log(
+          
+            comp_code +
+            "  " +
+        
+            comp_name +
+            " ."
+        );
+      });
+
+
     </script>
 
 </body>

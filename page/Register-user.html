@@ -184,6 +184,7 @@
                         id="confrm-pass" placeholder="8+ characters required" required />
                     </div>
                   </div>
+                  
                   <hr class="my-4">
                   <div class="col-12 text-capitalize ">
                     <h5 class="fw-bold text-gradient">Add Address</h5>
@@ -292,14 +293,14 @@
       ordering: false,
       info: false,
       columnDefs: [
-        // { targets: [-1, -3], className: 'dt-body-right' }
+        { targets: [-1, -3], className: 'dt-body-right' }
       ],
     });
 
    
     //setting address type ends
     var table_open =
-      "<table id='myDataTable_no_filter' style='width: 100%;'' class='table myDataTable align-middle table-striped mb-0'>";
+      "<table id='myDataTable_no_filter' class='table myDataTable align-middle table-striped mb-0'>";
     var table_close = "</table>";
 
     //setting address
