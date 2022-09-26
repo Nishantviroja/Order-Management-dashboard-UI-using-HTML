@@ -92,8 +92,8 @@
               aria-hidden="true"></i><span>Register User</span></a>
         </li>
         <li class="mb-2">
-          <a class="m-link" href="Register-client.html"><i class="fa fa-registered"></i><span>Register Client</span></a>
-        </li>
+          <a class="m-link" href="Register-Customer.html"><i class="fa fa-registered"></i><span>Register Customer</span></a>
+      </li>
 
         <li class="mb-2">
           <a class="m-link" href="Reports.html">
@@ -195,21 +195,21 @@
                       <div class="mb-2">
                         <label class="form-label">Address Type</label>
                         <input type="text" class="form-control form-control-lg confrm-pass border-1 shadow-sm" id="street"
-                          placeholder="Rental Address" required/>
+                          placeholder="Rental Address" />
                       </div>
                     </div>
                     <div class="col-lg-4 px-lg-1">
                       <div class="mb-2">
                         <label class="form-label">Street</label>
                         <input type="text" class="form-control form-control-lg confrm-pass border-1 shadow-sm" id="street2"
-                          placeholder="Raipurraja" required/>
+                          placeholder="Raipurraja"/>
                       </div>
                     </div>
                     <div class="col-lg-4 ps-lg-1">
                       <div class="mb-2">
                         <label class="form-label">Area</label>
                         <input type="text" class="form-control form-control-lg confrm-pass border-1 shadow-sm" id="area"
-                          placeholder="Gurunanak Chowk" required/>
+                          placeholder="Gurunanak Chowk"/>
                       </div>
                     </div>
 
@@ -217,7 +217,7 @@
                       <div class="mb-2">
                         <label class="form-label">City</label>
                         <input type="text" class="form-control form-control-lg confrm-pass border-1 shadow-sm" id="city"
-                          placeholder="eg. Lucknow" required/>
+                          placeholder="eg. Lucknow"/>
                       </div>
                     </div>
 
@@ -225,20 +225,20 @@
                       <div class="mb-2">
                         <label class="form-label">Country</label>
                         <input type="text" class="form-control form-control-lg confrm-pass border-1 shadow-sm" id="country"
-                          placeholder="eg. India" required/>
+                          placeholder="eg. India" />
                       </div>
                     </div>
                     <div class="col-lg-4 ps-lg-1">
                       <div class="mb-2">
                         <label class="form-label">Post Code</label>
                         <input type="text" class="form-control form-control-lg confrm-pass border-1 shadow-sm" id="zip_code"
-                          placeholder="eg. 271801" required/>
+                          placeholder="eg. 271801" />
                       </div>
                     </div>
                   </div>
                   <div class="col-12 text-center mt-4">
                     <button onclick="submit_address()" class="btn btn-block btn-primary fw-bold px-3"
-                      data-dismiss="modal">
+                      >
                       Add Address
                     </button>
                   </div>
@@ -263,7 +263,7 @@
       </div>
     </div>
   </div>
-  </div>
+  
 
 
 
@@ -275,9 +275,10 @@
 
   <!-- Jquery Core Js -->
   <script src="../assets/bundles/libscripts.bundle.js"></script>
+  <!-- <script src="../assets/bundles/sweetalert2.bundle.js"></script> -->
 
   <!-- Plugin Js -->
-  <script src="../assets/bundles/apexcharts.bundle.js"></script>
+  <!-- <script src="../assets/bundles/apexcharts.bundle.js"></script> -->
   <script src="../assets/bundles/dataTables.bundle.js"></script>
 
   <!-- Jquery Page Js -->
@@ -310,6 +311,7 @@
       else address.splice(address_num, 1);
       console.log("address length= " + address.length);
       update_address();
+      alert("address data delete successfully")
     }
 
     function update_address() {
@@ -397,6 +399,8 @@
     //    register user submission
     $("#signUpForm").submit(function (event) {
       event.preventDefault();
+      alert("data saved successfully")
+  
       console.log("running");
       var comp_code = $("#comp_code").val();
       var address = $("#address").val();
@@ -423,44 +427,7 @@
       );
     });
 
-    //    register user submission
-    $("#signUpForm").submit(function (event) {
-      event.preventDefault();
-      console.log("running");
-      var comp_code = $("#comp_code").val();
-      var address = $("#address").val();
-
-      var mobile = $("#mobile").val();
-      var cpassword = $("#cpassword").val();
-      var email = $("#email").val();
-      var role = "user";
-      var password = $("#password").val();
-      // if ($('#flexCheckDefault').is(":checked")) {
-      //     var checkTerms = true;
-      // }
-      // else
-      //     var checkTerms = false;
-      console.log(
-        "1 " +
-        comp_code +
-        "  " +
-       
-        mobile +
-        " " +
-        email +
-        " " +
-        role +
-        " " +
-        password +
-        " ."
-      );
-    });
-
-    //    register user submission ends
-
-    function changeAdmin(owner) {
-      $("#ownerView").text(owner);
-    }
+    
   </script>
 </body>
 
