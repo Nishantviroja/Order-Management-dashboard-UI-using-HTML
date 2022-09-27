@@ -28,7 +28,7 @@
             <nav class="navbar navbar-light px-md-2">
 
                 <!-- Brand -->
-                <a href="index.html" class="brand-icon d-flex align-items-center me-2 me-lg-4">
+                <a href="dashboard.html" class="brand-icon d-flex align-items-center me-2 me-lg-4">
 
                     <span class="fs-5 text-primary fw-bold d-none d-md-block">SymbioticNow</span>
                 </a>
@@ -83,7 +83,7 @@
                 </li>
                 
                 <li class="mb-2">
-                    <a class="m-link" href="Orders.html"><i class="fa fa-shopping-basket"></i><span>Orders</span></a>
+                    <a class="m-link" href="Orders.html"><i class="fa fa-shopping-basket"></i><span>My Orders</span></a>
                 </li>
                 <li class="mb-2">
                     <a class="m-link  active" href="Sales-orders.html"><i class="fa fa-pie-chart"></i><span>Sales Orders</span></a>
@@ -96,10 +96,7 @@
                     <a class="m-link" href="Register-Customer.html"><i class="fa fa-registered"></i><span>Register Customer</span></a>
                 </li>
                 
-                <li class="mb-2">
-                    <a class="m-link" href="Reports.html">
-                        <i class="fa fa-file-text-o" aria-hidden="true"></i><span>Reports</span></a>
-                </li>
+               
 
             </ul>
 
@@ -169,31 +166,27 @@
                         <div class="row g-3 mb-4">
                           <div class="col-lg-6 col-md-12">
                             <div class="form-floating">
-                              <input type="text" class="form-control" placeholder="Order ID" />
-                              <label>Order ID</label>
+                              <input type="date" class="form-control" placeholder="Order ID" />
+                              <label>Delivery date *</label>
                             </div>
                           </div>
                           <div class="col-lg-6 col-md-12">
                             <div class="form-floating">
-                              <select class="form-select" id="place_order_company_name" onclick="autofillCompanyCode(event)">
-                                  <option disabled selected>Choose Company</option>
-                                  <option value="Drapes by Design">Drapes by Design</option>
-                                  <option value="Colour Concepts">Colour Concepts</option>
-                                  <option value="GB - Tauranga">GB - Tauranga</option>
-                              </select>
+                              <input type="text" class="form-control" placeholder="Company name" id="place_order_company_code" />
+                              
                               <label for="floatingSelect">Company Name</label>
                             </div>
                           </div>
                           <div class="col-lg-6 col-md-12">
                             <div class="form-floating">
-                              <input type="text" class="form-control" placeholder="Company Code" id="place_order_company_code" readonly />
-                              <label>Company code</label>
+                              <input type="text" class="form-control" placeholder="Company Code" id="place_order_company_code"/>
+                              <label>Variety</label>
                             </div>
                           </div>
                           <div class="col-lg-6 col-md-12">
                             <div class="form-floating">
-                              <input type="text" class="form-control" placeholder="Customer Name" />
-                              <label>Customer Name</label>
+                              <input type="text" class="form-control" placeholder="PACKTYPE" />
+                              <label>PACKTYPE</label>
                             </div>
                           </div>
                           <div class="col-lg-4 col-md-12">
@@ -204,28 +197,26 @@
                                 <option value="3">C</option>
                                 <option value="4">D</option>
                               </select>
-                              <label for="floatingSelect">Curtain Code</label>
+                              <label for="floatingSelect">Designation</label>
                             </div>
                           </div>
   
                           <div class="col-lg-4 col-md-12">
                             <div class="form-floating">
                               <select class="form-select">
-                                <option value="1">A</option>
-                                <option value="2">B</option>
-                                <option value="3">C</option>
-                                <option value="4">D</option>
+                                <option value="1">5*6</option>
+                                <option value="2">6*9</option>
+                                <option value="3">7*9</option>
+                                <option value="4">7*6</option>
                               </select>
-                              <label for="floatingSelect">Curtain Type</label>
+                              <label for="floatingSelect">Size</label>
                             </div>
                           </div>
                           <div class="col-lg-4 col-md-12">
                             <div class="form-floating">
-                              <select class="form-select">
-                                <option value="1">Lined</option>
-                                <option value="2">Unlined</option>
-                              </select>
-                              <label for="floatingSelect">Lined/Unlined</label>
+                              <input type="text" class="form-control" placeholder="Price" />
+                             
+                              <label for="floatingSelect">Price</label>
                             </div>
                           </div>
                           <div class="
@@ -253,20 +244,12 @@
                           </div>
                           <div class="col-lg-6 col-md-12">
                             <div class="form-floating">
-                              <select class="form-select">
-                                <option value="1">Courier</option>
-                                <option value="2">Pickup</option>
-                              </select>
-                              <label for="floatingSelect">Delivery Mode</label>
+                              <input type="text" class="form-control" placeholder="Customer reference" />
+                             
+                              <label for="floatingSelect">Customer reference</label>
                             </div>
                           </div>
-                          <div class="col-lg-12 col-md-12">
-                            <div class="form-floating">
-                              <textarea type="text" class="form-control" placeholder="Description"
-                                style="height: 100px"></textarea>
-                              <label>Other Details</label>
-                            </div>
-                          </div>
+                          
                         </div>
                       </div>
                       <div class="modal-footer">
@@ -288,7 +271,7 @@
                 <div class="modal-dialog modal-lg modal-dialog-scrollable">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title">Edit Order</h5>
+                      <h5 class="modal-title">Place Order</h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -296,73 +279,64 @@
                       <div class="row g-3 mb-4">
                         <div class="col-lg-6 col-md-12">
                           <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Order ID" id="edit-orderid" />
-                            <label>Order ID</label>
+                            <input type="date" class="form-control" placeholder="Order ID" />
+                            <label>Delivery date *</label>
                           </div>
                         </div>
                         <div class="col-lg-6 col-md-12">
                           <div class="form-floating">
-                            <select class="form-select" id="edit_order_company_name" onclick="autofillCompanyCodeEditOrder(event)">
-                                <option disabled selected>Choose Company</option>
-                                <option value="Drapes by Design">Drapes by Design</option>
-                                <option value="Colour Concepts">Colour Concepts</option>
-                                <option value="GB - Tauranga">GB - Tauranga</option>
-                            </select>
+                            <input type="text" class="form-control" placeholder="Company name" id="place_order_company_code" />
+                            
                             <label for="floatingSelect">Company Name</label>
                           </div>
                         </div>
                         <div class="col-lg-6 col-md-12">
                           <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Company Code" id="edit_order_company_code" readonly />
-                            <label>Company code</label>
+                            <input type="text" class="form-control" placeholder="Company Code" id="place_order_company_code"/>
+                            <label>Variety</label>
                           </div>
                         </div>
-                        
-  
                         <div class="col-lg-6 col-md-12">
                           <div class="form-floating">
-                            <input type="text" class="form-control" id="edit-customer-name" placeholder="Customer Name" />
-                            <label>Customer Name</label>
+                            <input type="text" class="form-control" placeholder="PACKTYPE" />
+                            <label>PACKTYPE</label>
                           </div>
                         </div>
                         <div class="col-lg-4 col-md-12">
                           <div class="form-floating">
-                            <select class="form-select" id="edit-curtain-code">
+                            <select class="form-select">
                               <option value="1">A</option>
                               <option value="2">B</option>
                               <option value="3">C</option>
                               <option value="4">D</option>
                             </select>
-                            <label for="floatingSelect">Curtain Code</label>
+                            <label for="floatingSelect">Designation</label>
                           </div>
                         </div>
-  
+
                         <div class="col-lg-4 col-md-12">
                           <div class="form-floating">
-                            <select class="form-select" id="edit-curtain-type">
-                              <option value="1">A</option>
-                              <option value="2">B</option>
-                              <option value="3">C</option>
-                              <option value="4">D</option>
+                            <select class="form-select">
+                              <option value="1">5*6</option>
+                              <option value="2">6*9</option>
+                              <option value="3">7*9</option>
+                              <option value="4">7*6</option>
                             </select>
-                            <label for="floatingSelect">Curtain Type</label>
+                            <label for="floatingSelect">Size</label>
                           </div>
                         </div>
                         <div class="col-lg-4 col-md-12">
                           <div class="form-floating">
-                            <select class="form-select" id="edit-lined">
-                              <option value="lined">Lined</option>
-                              <option value="unlined">Unlined</option>
-                            </select>
-                            <label for="floatingSelect">Lined/Unlined</label>
+                            <input type="text" class="form-control" placeholder="Price" />
+                           
+                            <label for="floatingSelect">Price</label>
                           </div>
                         </div>
                         <div class="
-                              col-lg-4 col-md-12
+                              col-lg-6 col-md-12
                               d-flex
                               justify-content-between
-                              mt-4
-                              pt-2
+                              my-4
                             ">
                           <div class="mx-3">Quantity</div>
                           <div class="">
@@ -374,44 +348,28 @@
                                   border-0
                                   font-weight-bold
                                   w-50
-                                " id="edit-quantity" type="number" name="quantity" value="1" />
+                                " type="number" name="quantity" value="1" />
                             <button type="button" style="color: #d80027" class="button rounded-circle"
                               data-quantity="plus" data-field="quantity">
                               <i class="fa fa-plus" aria-hidden="true"></i>
                             </button>
                           </div>
                         </div>
-                        <div class="col-lg-4 col-md-12">
+                        <div class="col-lg-6 col-md-12">
                           <div class="form-floating">
-                            <select class="form-select" id="edit-delivery">
-                              <option value="courier">Courier</option>
-                              <option value="pickup">Pickup</option>
-                            </select>
-                            <label for="floatingSelect">Delivery Mode</label>
+                            <input type="text" class="form-control" placeholder="Customer reference" />
+                           
+                            <label for="floatingSelect">Customer reference</label>
                           </div>
                         </div>
-                        <div class="col-lg-4 col-md-12">
-                          <div class="form-floating">
-                            <select class="form-select" id="edit-order-status">
-                              <option disabled selected>Choose Status</option>
-                            </select>
-                            <label for="floatingSelect">Order Stautus</label>
-                          </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12">
-                          <div class="form-floating">
-                            <textarea type="text" class="form-control" placeholder="Description"
-                              style="height: 100px"></textarea>
-                            <label>Other Details</label>
-                          </div>
-                        </div>
+                        
                       </div>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         Close
                       </button>
-                      <button type="button" data-bs-dismiss="modal" class="btn btn-primary" id="edit-submit">
+                      <button type="button" class="btn btn-primary">
                         Submit
                       </button>
                     </div>
@@ -583,7 +541,7 @@
                                     </div>
                                 </div>
                                 <div class="table-responsive-sm my-4">
-                                  <h6><strong>Inward Fabric Details</strong></h6>
+                                  <h6><strong>Order Details</strong></h6>
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>

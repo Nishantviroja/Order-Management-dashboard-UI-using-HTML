@@ -16,6 +16,9 @@ var orderDetails = [
     status: "new order",
     qty: 25,
     delivery_mode: "courier",
+    destination: "rajkot",
+    price:200,
+    size:"5*6"
   },
   {
     day: 1,
@@ -33,6 +36,9 @@ var orderDetails = [
     cuttingStart: "22-01-2020",
     productionStart: "22-01-2020",
     etaDate: "22-12-2020",
+    destination: "surat",
+    price:2000,
+    size:"2*6"
   },
   {
     day: 1,
@@ -50,6 +56,9 @@ var orderDetails = [
     cuttingStart: "22-01-2020",
     productionStart: "22-01-2020",
     etaDate: "22-12-2020",
+    destination: "rajkot",
+    price:280,
+    size:"8*6"
   },
   {
     day: 1,
@@ -67,13 +76,16 @@ var orderDetails = [
     cuttingStart: "22-01-2020",
     productionStart: "22-01-2020",
     etaDate: "22-12-2020",
+    destination: "vadodara",
+    price:700,
+    size:"8*6"
   },
 ];
 
 var counter = 1;
 var table = "<tbody>";
 var tablehead =
-  "<thead><tr><th>#</th><th>Date</th><th>Company</th><th>Curtain Type</th><th>Lining</th><th>Quantity</th><th>Status</th><th>Collection</th><th class='text-center'>Action</th></tr><thead>";
+  "<thead><tr><th>#</th><th>Date</th><th>Company</th><th>Variety</th><th>Packtype</th><th>Quantity</th><th>Status</th><th>Destination</th><th>Size</th><th>Price</th><th class='text-center'>Action</th></tr><thead>";
 var rows = orderDetails.length;
 var col = 8;
 for (var i = 0; i < rows; i++) {
@@ -93,12 +105,17 @@ for (var i = 0; i < rows; i++) {
   table += '<td class="">' + orderDetails[i].qty + " sets" + "</td>";
   table += orderstatus(orderDetails[i].status);
   table +=
-    '<td class="text-capitalize">' + orderDetails[i].delivery_mode + "</td>";
-  table +=
+    '<td class="text-capitalize">' + orderDetails[i].destination + "</td>";
+    table +=
+    '<td class="text-capitalize">' + orderDetails[i].size + "</td>";
+    table +=
+    '<td class="text-capitalize">' + orderDetails[i].price + "</td>";
+    
+    table +=
     '<td class="text-center">' +
     '<button onclick="showDetail(' +
     orderDetails[i].order_id +
-    ')" type="button" class="btn btn-link btn-warning text-white me-1" data-bs-toggle="modal" data-bs-target="#OrderDetails" type="button"data-bs-placement="top" title = "View Details" > <i class="fa fa-eye"></i></button ><button type="button" onclick="editOrder(' +
+    ')" type="button" class="btn btn-link btn-warning text-white me-1" data-bs-toggle="modal" data-bs-target="#OrderDetails" type="button"data-bs-placement="top" title="View Details" > <i class="fa fa-eye"></i></button ><button type="button" onclick="editOrder(' +
     orderDetails[i].order_id +
     ')" class="btn btn-link btn-success text-white operator_hide" data-bs-toggle="modal" data-bs-target="#editOrder" data-bs-placement="top" title="Edit"><i class="fa fa-gear"></i></button><button  type="button" class=" btn btn-link btn-primary text-white ms-1 operator_hide" onclick="deleteOrder(' +
     orderDetails[i].order_id +
@@ -121,6 +138,9 @@ function showDetail(id) {
     delivery_mode: "pickup",
     comp_code: "2",
     customer: "Krittika",
+    destination: "rajkot",
+    price:200,
+    size:"5*6"
   };
 }
 

@@ -29,7 +29,7 @@
             <nav class="navbar navbar-light px-md-2">
 
                 <!-- Brand -->
-                <a href="index.html" class="brand-icon d-flex align-items-center me-2 me-lg-4">
+                <a href="dashboard.html" class="brand-icon d-flex align-items-center me-2 me-lg-4">
 
                     <span class="fs-5 text-primary fw-bold d-none d-md-block">SymbioticNow</span>
                 </a>
@@ -85,7 +85,7 @@
                 
                 
                 <li class="mb-2">
-                    <a class="m-link active" href="Orders.html"><i class="fa fa-shopping-basket"></i><span>Orders</span></a>
+                    <a class="m-link active" href="Orders.html"><i class="fa fa-shopping-basket"></i><span>My Orders</span></a>
                 </li>
                 <li class="mb-2">
                     <a class="m-link" href="Sales-orders.html"><i class="fa fa-pie-chart"></i><span>Sales Orders</span></a>
@@ -98,10 +98,7 @@
                     <a class="m-link" href="Register-Customer.html"><i class="fa fa-registered"></i><span>Register Customer</span></a>
                 </li>
                 
-                <li class="mb-2">
-                    <a class="m-link" href="Reports.html">
-                        <i class="fa fa-file-text-o" aria-hidden="true"></i><span>Reports</span></a>
-                </li>
+                
 
             </ul>
 
@@ -200,7 +197,7 @@
                                 class="form-control"
                                 placeholder="Code *"
                               />
-                              <label>Category *</label>
+                              <label>Variety *</label>
                             </div>
                           </div>
 
@@ -208,29 +205,29 @@
                             <div class="form-floating">
                               <input
                                 id="avl_qty"
-                                type="text"
+                                type="number"
                                 class="form-control"
                                 placeholder="Cost"
                               />
-                              <label> Available Quantity*</label>
+                              <label>Price *</label>
                             </div>
                           </div>
                           <div class="col-lg-6 col-md-12">
                             <div class="form-floating">
                               <input
                                 id="rsd_qty"
-                                type="text"
+                                type="number"
                                 class="form-control"
                                 placeholder="Price"
                               />
-                              <label>Reserved Quantity *</label>
+                              <label>Quantity *</label>
                             </div>
                           </div>
                           <div class="col-lg-12 col-md-12">
                             <div class="form-floating">
                               <input
                                 type="text"
-                                id="specification"
+                                id="category2"
                                 type="text"
                                 class="form-control"
                                 placeholder="Description"
@@ -238,7 +235,7 @@
                               />
 
                               
-                              <label>Specification *</label>
+                              <label>Packtype *</label>
                             </div>
                           </div>
                           <div
@@ -247,7 +244,7 @@
                             <div
                               style="flex-basis: 97%; justify-content: center"
                             >
-                              Location*
+                              Size *
                             </div>
                           </div>
 
@@ -258,26 +255,8 @@
                               flex-wrap: wrap;
                             "
                           >
-                            <div style="flex-basis: 30%">
-                              <div class="dropdown">
-                                <button
-                                  class="btn dropdown-toggle"
-                                  type="button"
-                                  id="dropdownMenuButton"
-                                  data-toggle="dropdown"
-                                  aria-haspopup="true"
-                                  aria-expanded="false"
-                                >
-                                  Rack
-                                </button>
-                                <div
-                                  id="rack_dropdown"
-                                  class="dropdown-menu"
-                                  aria-labelledby="dropdownMenuButton"
-                                ></div>
-                              </div>
-                            </div>
-                            <div style="flex-basis: 30%">
+                            
+                            <div style="flex-basis: 50%">
                               <div class="dropdown">
                                 <button
                                   class="btn dropdown-toggle"
@@ -296,7 +275,7 @@
                                 ></div>
                               </div>
                             </div>
-                            <div style="flex-basis: 30%">
+                            <div style="flex-basis: 50%">
                               <div class="dropdown">
                                 <button
                                   class="btn dropdown-toggle"
@@ -324,12 +303,7 @@
                               flex-wrap: wrap;
                             "
                           >
-                            <div
-                              id="rack_num"
-                              style="flex-basis: 30%; padding-left: 1rem"
-                            >
-                              NaN
-                            </div>
+                            
                             <div
                               id="row_num"
                               style="flex-basis: 30%; padding-left: 1rem"
@@ -442,7 +416,7 @@
           "<table id='myDataTable_no_filter' style='width: 100%;' class='table myDataTable align-middle table-striped mb-0'>";
         var tableclose = "<table>";
         var tablehead =
-          "<thead><tr><th>#</th><th>Name</th><th>Category</th><th>Specification</th><th>Rack-Row-Column</th><th>Available Quantity</th><th>Reserved Quantity</th><th>Actions</th></tr></thead>";
+          "<thead><tr><th>#</th><th>Name</th><th>Variety</th><th>Size</th><th>Packtype</th><th>Price</th><th>Quantity</th><th>Actions</th></tr></thead>";
         var rows = 10; //to be fetched from backend
         var col = 3; //to be fetched from backend
         var items_data = [
@@ -450,11 +424,11 @@
             name: "benasari chaddar",
             category: "soft",
             Specification: "6*5",
-            avl_qty: "70",
+            avl_qty: "700",
             rsd_qty: "60",
             last_modified_on: "02-07-2001",
             last_modified_by: "20-12-2019",
-            rack: "5",
+            category2: "MB",
             row: "8",
             column: "10",
           },
@@ -462,11 +436,11 @@
             name: "kanpuriya chaddar",
             category: "hard",
             Specification: "5*5",
-            avl_qty: "56",
+            avl_qty: "560",
             rsd_qty: "90",
             last_modified_on: "02-07-2001",
             last_modified_by: "20-12-2019",
-            rack: "5",
+            category2: "ML",
             row: "8",
             column: "10",
           },
@@ -474,11 +448,11 @@
             name: "xyz chaddar",
             category: "soft",
             Specification: "5*9",
-            avl_qty: "10",
+            avl_qty: "1000",
             rsd_qty: "60",
             last_modified_on: "02-07-2001",
             last_modified_by: "20-12-2019",
-            rack: "5",
+            category2: "IT",
             row: "8",
             column: "10",
           },
@@ -486,11 +460,11 @@
             name: "wtg chaddar",
             category: "soft",
             Specification: "5*9",
-            avl_qty: "10",
+            avl_qty: "910",
             rsd_qty: "60",
             last_modified_on: "02-07-2001",
             last_modified_by: "20-12-2019",
-            rack: "5",
+            category2: "ML",
             row: "8",
             column: "10",
           },
@@ -498,11 +472,11 @@
             name: "abc chaddar",
             category: "soft",
             Specification: "5*9",
-            avl_qty: "10",
+            avl_qty: "190",
             rsd_qty: "60",
             last_modified_on: "02-07-2001",
             last_modified_by: "20-12-2019",
-            rack: "5",
+            category2: "IT",
             row: "8",
             column: "10",
           },
@@ -523,14 +497,11 @@
             items_table += "<td>" + (i + 1) + "</td>";
             items_table += "<td>" + items_data[i]["name"] + "</td>";
             items_table += "<td>" + items_data[i]["category"] + "</td>";
-            items_table += "<td>" + items_data[i]["Specification"] + "</td>";
+            items_table += "<td>" + items_data[i]["row"] +"*"+items_data[i]["column"] + "</td>";
             items_table +=
               "<td>" +
-              items_data[i]["rack"] +
-              "-" +
-              items_data[i]["row"] +
-              "-" +
-              items_data[i]["column"] +
+              items_data[i]["category2"] +
+              
               "</td>";
             items_table += "<td>" + items_data[i]["avl_qty"] + "</td>";
             items_table += "<td>" + items_data[i]["rsd_qty"] + "</td>";
@@ -556,10 +527,11 @@
           $("#AddItems").modal("show");
           $("#name").val(items_data[i]["name"]);
           $("#category").val(items_data[i]["category"]);
+          $("#category2").val(items_data[i]["category2"]);
           $("#specification").val(items_data[i]["Specification"]);
           $("#avl_qty").val(items_data[i]["avl_qty"]);
           $("#rsd_qty").val(items_data[i]["rsd_qty"]);
-          $("#rack_num").text(items_data[i]["rack"]);
+          $("#rack_num").val(items_data[i]["rack"]);
           $("#row_num").text(items_data[i]["row"]);
           $("#column_num").text(items_data[i]["column"]);
   
@@ -573,6 +545,7 @@
         function submit_item() {
           var name = $("#name").val();
           var category = $("#category").val();
+          var category2 = $("#category2").val();
           var specification = $("#specification").val();
           var avl_qty = $("#avl_qty").val();
           var rsd_qty = $("#rsd_qty").val();
@@ -590,6 +563,7 @@
             items_data.push({
               name: name,
               category: category,
+              category2: category2,
               Specification: specification,
               avl_qty: avl_qty,
               rsd_qty: rsd_qty,
@@ -604,10 +578,11 @@
           show_table();
           $("#name").val("");
           $("#category").val("");
+          $("#category2").val("");
           $("#specification").val("");
           $("#avl_qty").val("");
           $("#rsd_qty").val("");
-          $("#rack_num").text("");
+          $("#rack_num").val("");
           $("#row_num").text("");
           $("#column_num").text("");
         }
@@ -667,10 +642,11 @@
           $("#add_item").text("Add Item");
           $("#name").val("");
           $("#category").val("");
+          $("#category2").val("");
           $("#specification").val("");
           $("#avl_qty").val("");
           $("#rsd_qty").val("");
-          $("#rack_num").text("");
+          $("#rack_num").val("");
           $("#row_num").text("");
           $("#column_num").text("");
         }

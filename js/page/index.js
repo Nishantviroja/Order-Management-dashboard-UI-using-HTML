@@ -40,7 +40,7 @@ $(function() {
             },
         },
         xaxis: {
-            categories: ['2019', '2020', '2021', '2022'],
+            categories: ['Cmp 1', 'Cmp 2', 'Cmp 3', 'Cmp 4'],
         },
         legend: {
             position: 'bottom',
@@ -132,7 +132,7 @@ $(function() {
             },
         },
         xaxis: {
-            categories: ['2017', '2018', '2019', '2020'],
+            categories: ['Size 1', 'Size 2', 'Size 3', 'Size 4'],
         },
         legend: {
             position: 'bottom',
