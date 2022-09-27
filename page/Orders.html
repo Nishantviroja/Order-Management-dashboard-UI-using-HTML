@@ -12,6 +12,7 @@
 
     <!-- plugin css file  -->
     <link rel="stylesheet" href="../assets/css/dataTables.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrapdatepicker.min.css" />
 
     <!-- project css file  -->
     <link rel="stylesheet" href="../assets/css/al.style.min.css">
@@ -109,6 +110,299 @@
         </div>
     </div>
 
+    <!-- main body area -->
+    <div class="main  mt-4">
+        <!-- Body: Header -->
+        <div class="body-header border-0 rounded-0  pt-5">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div
+                  class="d-flex justify-content-between align-items-center py-2"
+                >
+                 
+                  <ol
+                    class="breadcrumb rounded-0 mb-0 ps-0 bg-transparent flex-grow-1"
+                  >
+                    <li class="breadcrumb-item">
+                      <a href="dashboard.html" class="text-primary">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      Orders
+                    </li>
+                  </ol>
+                  <div class="d-flex flex-wrap align-items-center">
+                    
+                    <button
+                    class="btn btn-primary "
+                    data-bs-toggle="modal"
+                    data-bs-target="#AddItems"
+                    type="button"
+                    onclick="change_add_item_heading()"
+                  >
+                    Add Item
+                  </button>
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- .row end -->
+          </div>
+        </div>
+
+        <!-- Body: Body -->
+        <div class="body">
+          <div class="container-fluid">
+            <div class="row g-2 mb-5">
+              <div class="col-12">
+               
+
+                <!-- Modal: Add Items -->
+                <div
+                  class="modal fade"
+                  id="AddItems"
+                  tabindex="-1"
+                  aria-labelledby="AddItems"
+                  aria-hidden="true"
+                  style="background-color: rgba(12, 12, 12, 0.5);"
+                >
+                  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="add_item">Add Item</h5>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body" style="overflow: auto">
+                        <div class="row g-3 mb-4">
+                          <div class="col-lg-6 col-md-12">
+                            <div class="form-floating">
+                              <input
+                                id="name"
+                                type="text"
+                                value=""
+                                class="form-control"
+                                placeholder="Name"
+                              />
+                              <label>Name *</label>
+                            </div>
+                          </div>
+                          <div class="col-lg-6 col-md-12">
+                            <div class="form-floating">
+                              <input
+                                id="category"
+                                type="text"
+                                class="form-control"
+                                placeholder="Code *"
+                              />
+                              <label>Category *</label>
+                            </div>
+                          </div>
+
+                          <div class="col-lg-6 col-md-12">
+                            <div class="form-floating">
+                              <input
+                                id="avl_qty"
+                                type="text"
+                                class="form-control"
+                                placeholder="Cost"
+                              />
+                              <label> Available Quantity*</label>
+                            </div>
+                          </div>
+                          <div class="col-lg-6 col-md-12">
+                            <div class="form-floating">
+                              <input
+                                id="rsd_qty"
+                                type="text"
+                                class="form-control"
+                                placeholder="Price"
+                              />
+                              <label>Reserved Quantity *</label>
+                            </div>
+                          </div>
+                          <div class="col-lg-12 col-md-12">
+                            <div class="form-floating">
+                              <input
+                                type="text"
+                                id="specification"
+                                type="text"
+                                class="form-control"
+                                placeholder="Description"
+                                style="height: 100px"
+                              />
+
+                              
+                              <label>Specification *</label>
+                            </div>
+                          </div>
+                          <div
+                            style="display: flex; justify-content: space-around"
+                          >
+                            <div
+                              style="flex-basis: 97%; justify-content: center"
+                            >
+                              Location*
+                            </div>
+                          </div>
+
+                          <div
+                            style="
+                              display: flex;
+                              justify-content: space-around;
+                              flex-wrap: wrap;
+                            "
+                          >
+                            <div style="flex-basis: 30%">
+                              <div class="dropdown">
+                                <button
+                                  class="btn dropdown-toggle"
+                                  type="button"
+                                  id="dropdownMenuButton"
+                                  data-toggle="dropdown"
+                                  aria-haspopup="true"
+                                  aria-expanded="false"
+                                >
+                                  Rack
+                                </button>
+                                <div
+                                  id="rack_dropdown"
+                                  class="dropdown-menu"
+                                  aria-labelledby="dropdownMenuButton"
+                                ></div>
+                              </div>
+                            </div>
+                            <div style="flex-basis: 30%">
+                              <div class="dropdown">
+                                <button
+                                  class="btn dropdown-toggle"
+                                  type="button"
+                                  id="dropdownMenuButton"
+                                  data-toggle="dropdown"
+                                  aria-haspopup="true"
+                                  aria-expanded="false"
+                                >
+                                  Row
+                                </button>
+                                <div
+                                  id="row_dropdown"
+                                  class="dropdown-menu"
+                                  aria-labelledby="dropdownMenuButton"
+                                ></div>
+                              </div>
+                            </div>
+                            <div style="flex-basis: 30%">
+                              <div class="dropdown">
+                                <button
+                                  class="btn dropdown-toggle"
+                                  type="button"
+                                  id="dropdownMenuButton"
+                                  data-toggle="dropdown"
+                                  aria-haspopup="true"
+                                  aria-expanded="false"
+                                >
+                                  Column
+                                </button>
+                                <div
+                                  id="column_dropdown"
+                                  class="dropdown-menu"
+                                  aria-labelledby="dropdownMenuButton"
+                                ></div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div
+                            style="
+                              display: flex;
+                              justify-content: space-around;
+                              flex-wrap: wrap;
+                            "
+                          >
+                            <div
+                              id="rack_num"
+                              style="flex-basis: 30%; padding-left: 1rem"
+                            >
+                              NaN
+                            </div>
+                            <div
+                              id="row_num"
+                              style="flex-basis: 30%; padding-left: 1rem"
+                            >
+                              NaN
+                            </div>
+                            <div
+                              id="column_num"
+                              style="flex-basis: 30%; padding-left: 1rem"
+                            >
+                              NaN
+                            </div>
+                          </div>
+
+                         
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                        <button
+                          onclick="submit_item()"
+                          data-bs-dismiss="modal"
+                          type="button"
+                          class="btn btn-primary"
+                          id="add-item"
+                        >
+                          Save
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="card bg-white ">
+                  <div class="card-body p-0 pt-2" id="item_table">
+                     </div>
+                </div>
+              </div>
+            </div>
+            <!-- .row end -->
+          </div>
+        </div>
+
+        </div>
+
+
+     
+    </div>
+    <!-- Bootsrap core js -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
   
 
   
@@ -119,27 +413,272 @@
     <script src="../assets/bundles/libscripts.bundle.js"></script>
 
     <!-- Plugin Js -->
-    <script src="../assets/bundles/apexcharts.bundle.js"></script>
     <script src="../assets/bundles/dataTables.bundle.js"></script>
+    <script src="../assets/bundles/bootstrapdatepicker.bundle.js"></script>
 
     <!-- Jquery Page Js -->
     <script src="../assets/js/template.js"></script>
     <script src="../js/page/index.js"></script>
+    <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+  
     <script>
-        $('#myDataTable_no_filter')
-            .addClass('nowrap')
-            .dataTable({
-                responsive: true,
-                searching: false,
-                paging: false,
-                ordering: false,
-                info: false,
-                columnDefs: [
-                    // { targets: [-1, -3], className: 'dt-body-right' }
-                ]
+        $(".datepicker").datepicker({});
+        $("#myDataTable_no_filter").addClass("nowrap").dataTable({
+          responsive: true,
+          searching: false,
+          paging: false,
+          ordering: false,
+          info: false,
+          columnDefs: [
+            // { targets: [-1, -3], className: 'dt-body-right' }
+          ],
+        });
+  
+        //  -------Dynamic table------
+  
+        var table = "";
+        var tableOpen =
+          "<table id='myDataTable_no_filter' style='width: 100%;' class='table myDataTable align-middle table-striped mb-0'>";
+        var tableclose = "<table>";
+        var tablehead =
+          "<thead><tr><th>#</th><th>Name</th><th>Category</th><th>Specification</th><th>Rack-Row-Column</th><th>Available Quantity</th><th>Reserved Quantity</th><th>Actions</th></tr></thead>";
+        var rows = 10; //to be fetched from backend
+        var col = 3; //to be fetched from backend
+        var items_data = [
+          {
+            name: "benasari chaddar",
+            category: "soft",
+            Specification: "6*5",
+            avl_qty: "70",
+            rsd_qty: "60",
+            last_modified_on: "02-07-2001",
+            last_modified_by: "20-12-2019",
+            rack: "5",
+            row: "8",
+            column: "10",
+          },
+          {
+            name: "kanpuriya chaddar",
+            category: "hard",
+            Specification: "5*5",
+            avl_qty: "56",
+            rsd_qty: "90",
+            last_modified_on: "02-07-2001",
+            last_modified_by: "20-12-2019",
+            rack: "5",
+            row: "8",
+            column: "10",
+          },
+          {
+            name: "xyz chaddar",
+            category: "soft",
+            Specification: "5*9",
+            avl_qty: "10",
+            rsd_qty: "60",
+            last_modified_on: "02-07-2001",
+            last_modified_by: "20-12-2019",
+            rack: "5",
+            row: "8",
+            column: "10",
+          },
+          {
+            name: "wtg chaddar",
+            category: "soft",
+            Specification: "5*9",
+            avl_qty: "10",
+            rsd_qty: "60",
+            last_modified_on: "02-07-2001",
+            last_modified_by: "20-12-2019",
+            rack: "5",
+            row: "8",
+            column: "10",
+          },
+          {
+            name: "abc chaddar",
+            category: "soft",
+            Specification: "5*9",
+            avl_qty: "10",
+            rsd_qty: "60",
+            last_modified_on: "02-07-2001",
+            last_modified_by: "20-12-2019",
+            rack: "5",
+            row: "8",
+            column: "10",
+          },
+        ];
+  
+        var rows = 3;
+  
+        $(document).ready(function () {
+          show_table();
+        });
+  
+        function show_table() {
+          rows = items_data.length;
+          var items_table = "";
+          items_table += "<tbody>";
+          for (var i = 0; i < rows; i++) {
+            items_table += "<tr>";
+            items_table += "<td>" + (i + 1) + "</td>";
+            items_table += "<td>" + items_data[i]["name"] + "</td>";
+            items_table += "<td>" + items_data[i]["category"] + "</td>";
+            items_table += "<td>" + items_data[i]["Specification"] + "</td>";
+            items_table +=
+              "<td>" +
+              items_data[i]["rack"] +
+              "-" +
+              items_data[i]["row"] +
+              "-" +
+              items_data[i]["column"] +
+              "</td>";
+            items_table += "<td>" + items_data[i]["avl_qty"] + "</td>";
+            items_table += "<td>" + items_data[i]["rsd_qty"] + "</td>";
+            items_table +=
+              "<td>" +
+              "<button type='button' class='btn btn-link btn-success btn-sm text-white me-2' data-bs-toggle='tooltip' data-bs-placement='top' title='Manage' onclick='edit_an_item(" +
+              i +
+              ")'><i class='fa fa-gear'></i></button><button type='button' class='btn btn-link btn-danger btn-sm text-white' data-bs-toggle='tooltip' data-bs-placement='top' title='Delete' onclick='delete_an_item(" +
+              i +
+              ")'><i class='fa fa-trash'></i></button>" +
+              "</td>";
+  
+            items_table += "</tr>";
+          }
+          items_table += "</tbody>";
+          $("#item_table").html(tableOpen + tablehead + items_table + tableclose);
+        }
+  
+        var x = -1;
+        //  -------Dynamic table---ends---
+        function edit_an_item(i) {
+          $("#add_item").text("Edit Item");
+          $("#AddItems").modal("show");
+          $("#name").val(items_data[i]["name"]);
+          $("#category").val(items_data[i]["category"]);
+          $("#specification").val(items_data[i]["Specification"]);
+          $("#avl_qty").val(items_data[i]["avl_qty"]);
+          $("#rsd_qty").val(items_data[i]["rsd_qty"]);
+          $("#rack_num").text(items_data[i]["rack"]);
+          $("#row_num").text(items_data[i]["row"]);
+          $("#column_num").text(items_data[i]["column"]);
+  
+          x = i;
+        }
+        function delete_an_item(i) {
+          items_data.splice(i, 1);
+          show_table();
+          alert("address data delete successfully")
+        }
+        function submit_item() {
+          var name = $("#name").val();
+          var category = $("#category").val();
+          var specification = $("#specification").val();
+          var avl_qty = $("#avl_qty").val();
+          var rsd_qty = $("#rsd_qty").val();
+          var last_modified_on = "82378";
+          var last_modified_by = "hxjcd";
+  
+          console.log("aghshhs");
+          if (x >= 0) {
+            items_data[x]["avl_qty"] = avl_qty;
+            items_data[x]["rsd_qty"] = rsd_qty;
+            items_data[x]["rack"] = rack;
+            items_data[x]["row"] = row;
+            items_data[x]["column"] = column;
+          } else {
+            items_data.push({
+              name: name,
+              category: category,
+              Specification: specification,
+              avl_qty: avl_qty,
+              rsd_qty: rsd_qty,
+              last_modified_on: "02-07-2001",
+              last_modified_by: "20-12-2019",
+              rack: rack,
+              row: row,
+              column: column,
             });
-    </script>
-
+          }
+          x = -1;
+          show_table();
+          $("#name").val("");
+          $("#category").val("");
+          $("#specification").val("");
+          $("#avl_qty").val("");
+          $("#rsd_qty").val("");
+          $("#rack_num").text("");
+          $("#row_num").text("");
+          $("#column_num").text("");
+        }
+  
+        //rack
+        var rack;
+        var rackHTML = "";
+        for (var rack_count = 0; rack_count < 10; rack_count++) {
+          rackHTML +=
+            '<a class="dropdown-item" href="#" onclick="set_rack_num(' +
+            rack_count +
+            ')">' +
+            rack_count +
+            "</a>";
+        }
+        $("#rack_dropdown").html(rackHTML);
+        function set_rack_num(rack_count) {
+          $("#rack_num").text(rack_count);
+          rack = rack_count;
+        }
+  
+        //row
+        var row;
+        var rowHTML = "";
+        for (var row_count = 0; row_count < 10; row_count++) {
+          rowHTML +=
+            '<a class="dropdown-item" href="#" onclick="set_row_num(' +
+            row_count +
+            ')">' +
+            row_count +
+            "</a>";
+        }
+        $("#row_dropdown").html(rowHTML);
+        function set_row_num(row_count) {
+          $("#row_num").text(row_count);
+          row = row_count;
+        }
+  
+        //column
+        var column;
+        var columnHTML = "";
+        for (var column_count = 0; column_count < 10; column_count++) {
+          columnHTML +=
+            '<a class="dropdown-item" href="#" onclick="set_column_num(' +
+            column_count +
+            ')">' +
+            column_count +
+            "</a>";
+        }
+        $("#column_dropdown").html(columnHTML);
+        function set_column_num(column_count) {
+          $("#column_num").text(column_count);
+          column = column_count;
+        }
+  
+        function change_add_item_heading() {
+          $("#add_item").text("Add Item");
+          $("#name").val("");
+          $("#category").val("");
+          $("#specification").val("");
+          $("#avl_qty").val("");
+          $("#rsd_qty").val("");
+          $("#rack_num").text("");
+          $("#row_num").text("");
+          $("#column_num").text("");
+        }
+  
+        function changeAdmin(owner) {
+          $("#ownerView").text(owner);
+        }
+      </script>
 </body>
 
 </html>

@@ -41,7 +41,7 @@ var orderDetails = [
     company: "Chris Fox3",
     type: "sheer",
     lined: "unlined",
-    status: "awaiting fabric",
+    status: "pendding",
     qty: 20,
     delivery_mode: "pickup",
     order_id: 123,
@@ -58,7 +58,7 @@ var orderDetails = [
     company: "Chris Fox3",
     type: "pleated",
     lined: "lined",
-    status: "cutting",
+    status: "new order",
     qty: 12,
     delivery_mode: "courier",
     order_id: 134,
@@ -98,9 +98,9 @@ for (var i = 0; i < rows; i++) {
     '<td class="text-center">' +
     '<button onclick="showDetail(' +
     orderDetails[i].order_id +
-    ')" type="button" class="btn btn-link btn-sm" data-bs-toggle="modal" data-bs-target="#OrderDetails" type="button"data-bs-placement="top" title = "View Details" > <i class="fa fa-eye"></i></button ><button type="button" onclick="editOrder(' +
+    ')" type="button" class="btn btn-link btn-warning text-white me-1" data-bs-toggle="modal" data-bs-target="#OrderDetails" type="button"data-bs-placement="top" title = "View Details" > <i class="fa fa-eye"></i></button ><button type="button" onclick="editOrder(' +
     orderDetails[i].order_id +
-    ')" class="btn btn-link btn-sm text-primary operator_hide" data-bs-toggle="modal" data-bs-target="#editOrder" data-bs-placement="top" title="Edit"><i class="fa fa-gear"></i></button><button type = "button" class="btn btn-link btn-sm text-danger operator_hide" data-bs-toggle="modal" data-bs-target="#create-inward-fabric" data-bs-placement="top" title = "Add Inward Fabric" > <i class="fa fa-cut"></i></button ><button  type="button" class="btn btn-link btn-sm text-danger operator_hide" data-bs-toggle="modal" data-bs-target="#createjob"  data-bs-placement="top" title="Create Jobs"><i class="fa fa-tasks"></i></button><button  type="button" class=" btn btn-link btn-sm text-danger operator_hide" onclick="deleteOrder(' +
+    ')" class="btn btn-link btn-success text-white operator_hide" data-bs-toggle="modal" data-bs-target="#editOrder" data-bs-placement="top" title="Edit"><i class="fa fa-gear"></i></button><button  type="button" class=" btn btn-link btn-primary text-white ms-1 operator_hide" onclick="deleteOrder(' +
     orderDetails[i].order_id +
     ')"data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" ><i class="fa fa-trash"></i></button></td > ';
   table += "</tr>";
@@ -141,7 +141,7 @@ function orderstatus(status) {
       "</span>" +
       "</td>"
     );
-  if (status == "awaiting fabric")
+  if (status == "pendding")
     return (
       "<td>" +
       '<span class="badge text-capitalize p-2"  style="background-color:var(--chart-color4)">' +
