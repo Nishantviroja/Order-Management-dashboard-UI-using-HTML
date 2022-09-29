@@ -11,7 +11,9 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
 
     <!-- plugin css file  -->
-    <link rel="stylesheet" href="../assets/css/dataTables.min.css">
+    <!-- plugin css file  -->
+    <link rel="stylesheet" href="../assets/css/dropify.min.css">
+
     <link rel="stylesheet" href="../assets/css/bootstrapdatepicker.min.css" />
 
     <!-- project css file  -->
@@ -137,7 +139,7 @@
                     type="button"
                     onclick="change_add_item_heading()"
                   >
-                    Add Item
+                  Place Order
                   </button>
                   
                   </div>
@@ -167,7 +169,7 @@
                   <div class="modal-dialog modal-lg modal-dialog-scrollable">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="add_item">Add Item</h5>
+                        <h5 class="modal-title" id="add_item"></h5>
                         <button
                           type="button"
                           class="btn-close"
@@ -175,156 +177,171 @@
                           aria-label="Close"
                         ></button>
                       </div>
-                      <div class="modal-body" style="overflow: auto">
+                      <div class="modal-body " style="overflow: auto">
                         <div class="row g-3 mb-4">
-                          <div class="col-lg-6 col-md-12">
+                          <div class="col-lg-4 col-md-12">
                             <div class="form-floating">
                               <input
                                 id="name"
                                 type="text"
                                 value=""
-                                class="form-control"
+                                class="form-control border-primary"
                                 placeholder="Name"
                               />
                               <label>Name *</label>
                             </div>
                           </div>
-                          <div class="col-lg-6 col-md-12">
+                          <div class="col-lg-4 col-md-12">
                             <div class="form-floating">
                               <input
                                 id="category"
                                 type="text"
-                                class="form-control"
+                                class="form-control border-primary"
                                 placeholder="Code *"
                               />
                               <label>Variety *</label>
                             </div>
                           </div>
 
-                          <div class="col-lg-6 col-md-12">
+                          <div class="col-lg-4 col-md-12">
                             <div class="form-floating">
                               <input
                                 id="avl_qty"
                                 type="number"
-                                class="form-control"
+                                class="form-control border-primary"
                                 placeholder="Cost"
                               />
                               <label>Price *</label>
                             </div>
                           </div>
-                          <div class="col-lg-6 col-md-12">
+                          <div class="col-lg-4 col-md-12">
                             <div class="form-floating">
                               <input
                                 id="rsd_qty"
                                 type="number"
-                                class="form-control"
+                                class="form-control border-primary"
                                 placeholder="Price"
                               />
                               <label>Quantity *</label>
                             </div>
                           </div>
-                          <div class="col-lg-12 col-md-12">
+                          <div class="col-lg-4 col-md-12">
                             <div class="form-floating">
                               <input
                                 type="text"
                                 id="category2"
                                 type="text"
-                                class="form-control"
+                                class="form-control border-primary"
                                 placeholder="Description"
-                                style="height: 100px"
+                                
+                              />
+
+                              
+                              <label>Destination *</label>
+                            </div>
+                          </div>
+                          <div class="col-lg-4 col-md-12">
+                            <div class="form-floating">
+                              <input
+                                type="text"
+                                id="category3"
+                                type="text"
+                                class="form-control border-primary"
+                                placeholder="Description"
+                                
                               />
 
                               
                               <label>Packtype *</label>
                             </div>
                           </div>
-                          <div
-                            style="display: flex; justify-content: space-around"
-                          >
-                            <div
-                              style="flex-basis: 97%; justify-content: center"
-                            >
-                              Size *
-                            </div>
-                          </div>
-
-                          <div
-                            style="
-                              display: flex;
-                              justify-content: space-around;
-                              flex-wrap: wrap;
-                            "
-                          >
-                            
-                            <div style="flex-basis: 50%">
-                              <div class="dropdown">
-                                <button
-                                  class="btn dropdown-toggle"
-                                  type="button"
-                                  id="dropdownMenuButton"
-                                  data-toggle="dropdown"
-                                  aria-haspopup="true"
-                                  aria-expanded="false"
-                                >
-                                  Row
-                                </button>
-                                <div
-                                  id="row_dropdown"
-                                  class="dropdown-menu"
-                                  aria-labelledby="dropdownMenuButton"
-                                ></div>
-                              </div>
-                            </div>
-                            <div style="flex-basis: 50%">
-                              <div class="dropdown">
-                                <button
-                                  class="btn dropdown-toggle"
-                                  type="button"
-                                  id="dropdownMenuButton"
-                                  data-toggle="dropdown"
-                                  aria-haspopup="true"
-                                  aria-expanded="false"
-                                >
-                                  Column
-                                </button>
-                                <div
-                                  id="column_dropdown"
-                                  class="dropdown-menu"
-                                  aria-labelledby="dropdownMenuButton"
-                                ></div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div
-                            style="
-                              display: flex;
-                              justify-content: space-around;
-                              flex-wrap: wrap;
-                            "
-                          >
-                            
-                            <div
-                              id="row_num"
-                              style="flex-basis: 30%; padding-left: 1rem"
-                            >
-                              NaN
-                            </div>
-                            <div
-                              id="column_num"
-                              style="flex-basis: 30%; padding-left: 1rem"
-                            >
-                              NaN
-                            </div>
-                          </div>
-
                          
-                        </div>
+                          <div class="col-lg-4 col-md-12">
+                            <div class="card border-primary">
+                              <div class="card-body">
+                                  <label class="form-label ">Upload Packtype Images</label>
+                                  <input type="file" class="dropify" data-allowed-file-extensions="jpg"
+                                      required>
+
+                              </div>
+                            </div>
+                          </div>                          
+                          
+
+
+                          <div class="col-lg-8 col-md-12">
+                            
+                           
+                            <div class="form-floating">
+                              <input
+                                type="text"
+                                id="Specification"
+                                
+                                class="form-control border-primary "
+                                placeholder="5*8"
+                                required
+                                
+                              />
+
+                              
+                              <label>Size *</label>
+                            </div>
+                            <div class="form-floating">
+                              <input
+                                type="date"
+                                id="category2"
+                                
+                                class="form-control border-primary mt-2"
+                                placeholder="Description"
+                                required
+                                
+                              />
+
+                              
+                              <label>Dispatch date *</label>
+                            </div>
+                            <div class="form-floating">
+                              <select class="form-select border-primary mt-2" onchange="toggle()" id="rc">
+                                <option value="no" selected>No</option>
+                                <option value="yes">Yes</option>
+                               
+                              </select>
+
+                              
+                              <label>Reoccurring order</label>
+                            </div>
+                            <div id="Reoccurring_order" class="row m-0 p-0" style="display:none;">
+                              <div class="px-0 mt-2">
+                                <div class="form-floating ">
+                                  <input
+                                    id="avl_qty"
+                                    type="date"
+                                    class="form-control border-primary"
+                                    placeholder="Cost"
+                                  />
+                                  <label>Start Date *</label>
+                                </div>
+                              </div>
+                              <div class="px-0 mt-2">
+                                <div class="form-floating">
+                                  <input
+                                    id="rsd_qty"
+                                    type="date"
+                                    class="form-control border-primary"
+                                    placeholder="Price"
+                                  />
+                                  <label>End Date *</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                         
                       </div>
-                      <div class="modal-footer">
+                      </div>
+                      <div class="modal-footer bg-light">
                         <button
                           type="button"
-                          class="btn btn-secondary"
+                          class="btn btn-danger"
                           data-bs-dismiss="modal"
                         >
                           Close
@@ -342,6 +359,304 @@
                     </div>
                   </div>
                 </div>
+                <div class="modal fade" id="OrderDetails" tabindex="-1" aria-labelledby="Order Details" aria-hidden="true">
+                  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <!-- <h6 class="fw-bold">Basic Information</h6> -->
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="padding: 1rem !important">
+                          <div class="card" style="margin-bottom: 30px; border: none;
+                          -webkit-box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
+                          -moz-box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
+                          box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22)">
+                              <div class="card-header p-4" style="background-color: #fff;
+                              border-bottom: 1px solid #e6e6f2">
+                                  <div class="float-right">
+                                      <h3 class="mb-0" style="font-size: 16px">OrderID : #<span class="strong">BBB10234</span> </h3>
+                                      Date: 12 Jun,2022
+                                  </div>
+                              </div>
+                              <div class="card-body">
+                                  <div class="row mb-4">
+                                      <div class="col-sm-5">
+                                          <h3 class="mb-3 fw-bold" style="font-size: 17px;
+                                          line-height: 26px;
+                                          color: #3d405c;
+                                          margin: 0px 0px 15px 0px;
+                                          ">Company Details:</h3>
+                                          <h6 class="fw-normal mb-1" style=" color: #3d405c !important;">Colour Concepts</h6>
+                                          <div>Company Code: <span>CCR</span></div>
+                                          <div>Customer Name: <span>Krittika Barnwal</span></div>
+                                          <div>Email: <span>contact@bbbootstrap.com</span></div>
+                                          <div>Phone: <span>+91 7784657392</span></div>
+                                      </div>
+                                      <div class="col-sm-5">
+                                        <h3 class="mb-3 fw-bolder" style="font-size: 17px;
+                                        line-height: 26px;
+                                        color: #3d405c;
+                                        margin: 0px 0px 15px 0px;
+                                        ">Order Details:</h3>
+                                          
+                                          <div>Dispatch Date: <span>12-05-2022</span></div>
+                                          <div>Reoccurring order: <span>Yes</span> </div>
+                                          <div> Start Date: <span>12-05-2022</span></div>
+                                          <div>end Date: <span>12-06-2022</span></div>
+                                      </div>
+                                      <div class="col-12 col-lg-2">
+                                        <h3 class="mb-3 fw-bold" style="font-size: 17px;
+                                        line-height: 26px;
+                                        color: #3d405c;
+                                        margin: 0px 0px 15px 0px;
+                                        ">Order Status:</h3>
+                                        <h6 class="bg-warning text-center p-1 rounded-3 w-75 mb-1"> New Order</h6>
+                                         
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#addOrderline" data-bs-dismiss="modal" class="btn text-white bg-success mt-2 mt-lg-5 px-4">Add Order Line</button>
+                                        </div>
+  
+                                  </div>
+                                  <div class="table-responsive-sm my-4">
+                                    <h6><strong>Order Details</strong></h6>
+                                      <table class="table table-striped">
+                                          
+    <thead><tr><th>#</th><th>Date</th><th>Company</th><th>Variety</th><th>Packtype</th><th>Quantity</th><th>Status</th><th>Destination</th><th>Size</th><th>Price</th><th class='text-center'>Action</th></tr><thead>
+  
+                                          <tbody>
+                                            <tr>
+                                                  <td class="center">1</td>
+                                                  <td class="left strong">Harris Delta</td>
+                                                  <td class="left">Pleated</td>
+                                                  <td class="right">15</td>
+                                                  <td class="center">10</td>
+                                                  <td class="center">10</td>
+                                                  <td class="center">10</td>
+                                                  <td class="center">Surat</td>
+                                                  <td class="center">10</td>
+                                                  <td class="center">1600</td>
+                                                  <td class="center"><div class="text-center"><button type="button"class="btn btn-link btn-success text-white operator_hide" data-bs-toggle="modal" data-bs-target="#addOrderline" data-bs-placement="top" title="Edit"><i class="fa fa-gear"></i></button>
+                                                    <button  type="button" class=" btn btn-link btn-danger text-white ms-1 operator_hide" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" ><i class="fa fa-trash"></i></button></div></td>
+                                              </tr>
+                                             
+                                          </tbody>
+                                      </table>
+                                  </div>
+                                
+                              </div>
+                          </div>
+                      </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                              Close
+                            </button>
+                             <button type="button"  data-bs-dismiss="modal"
+                          class="btn text-white bg-success operator_hide" id='accept-order'>
+                          Save
+                        </button>
+                       
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="addOrderline" tabindex="-1" aria-labelledby="addOrderline" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="add_item">Add Order Line</h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body " style="overflow: auto">
+                      <div class="row g-3 mb-4">
+                        <div class="col-lg-4 col-md-12">
+                          <div class="form-floating">
+                            <input
+                              id="name"
+                              type="text"
+                              value=""
+                              class="form-control border-primary"
+                              placeholder="Name"
+                            />
+                            <label>Name *</label>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                          <div class="form-floating">
+                            <input
+                              id="category"
+                              type="text"
+                              class="form-control border-primary"
+                              placeholder="Code *"
+                            />
+                            <label>Variety *</label>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-12">
+                          <div class="form-floating">
+                            <input
+                              id="avl_qty"
+                              type="number"
+                              class="form-control border-primary"
+                              placeholder="Cost"
+                            />
+                            <label>Price *</label>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                          <div class="form-floating">
+                            <input
+                              id="rsd_qty"
+                              type="number"
+                              class="form-control border-primary"
+                              placeholder="Price"
+                            />
+                            <label>Quantity *</label>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                          <div class="form-floating">
+                            <input
+                              type="text"
+                              id="category2"
+                              type="text"
+                              class="form-control border-primary"
+                              placeholder="Description"
+                              
+                            />
+
+                            
+                            <label>Destination *</label>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                          <div class="form-floating">
+                            <input
+                              type="text"
+                              id="category3"
+                              type="text"
+                              class="form-control border-primary"
+                              placeholder="Description"
+                              
+                            />
+
+                            
+                            <label>Packtype *</label>
+                          </div>
+                        </div>
+                       
+                        <div class="col-lg-4 col-md-12">
+                          <div class="card border-primary">
+                            <div class="card-body">
+                                <label class="form-label ">Upload Packtype Images</label>
+                                <input type="file" class="dropify" data-allowed-file-extensions="jpg"
+                                    required>
+
+                            </div>
+                          </div>
+                        </div>                          
+                        
+
+
+                        <div class="col-lg-8 col-md-12">
+                          
+                         
+                          <div class="form-floating">
+                            <input
+                              type="text"
+                              id="Specification"
+                              
+                              class="form-control border-primary "
+                              placeholder="5*8"
+                              required
+                              
+                            />
+
+                            
+                            <label>Size *</label>
+                          </div>
+                          <div class="form-floating">
+                            <input
+                              type="date"
+                              id="category2"
+                              
+                              class="form-control border-primary mt-2"
+                              placeholder="Description"
+                              required
+                              
+                            />
+
+                            
+                            <label>Dispatch date *</label>
+                          </div>
+                          <div class="form-floating">
+                            <select class="form-select border-primary mt-2" onchange="toggle()" id="rc">
+                              <option value="no" selected>No</option>
+                              <option value="yes">Yes</option>
+                             
+                            </select>
+
+                            
+                            <label>Reoccurring order</label>
+                          </div>
+                          <div id="Reoccurring_order" class="row m-0 p-0" style="display:none;">
+                            <div class="px-0 mt-2">
+                              <div class="form-floating ">
+                                <input
+                                  id="avl_qty"
+                                  type="date"
+                                  class="form-control border-primary"
+                                  placeholder="Cost"
+                                />
+                                <label>Start Date *</label>
+                              </div>
+                            </div>
+                            <div class="px-0 mt-2">
+                              <div class="form-floating">
+                                <input
+                                  id="rsd_qty"
+                                  type="date"
+                                  class="form-control border-primary"
+                                  placeholder="Price"
+                                />
+                                <label>End Date *</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                       
+                    </div>
+                    </div>
+                    <div class="modal-footer bg-light">
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        data-bs-dismiss="modal"
+                        data-bs-toggle="modal" data-bs-target="#OrderDetails"
+                      >
+                        Close
+                      </button>
+                      <button
+                        
+                      data-bs-dismiss="modal"
+                      data-bs-toggle="modal" data-bs-target="#OrderDetails"
+                        type="button"
+                        class="btn btn-warning"
+                        id="add-item"
+                      >
+                        Save
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
               </div>
 
               <div class="col-12">
@@ -382,9 +697,20 @@
   
 
 
-
+    <script>
+      function toggle() {
+          var cont = document.getElementById('Reoccurring_order');
+          if (cont.style.display == 'none') {
+              cont.style.display = 'block';
+          }
+          else {
+              cont.style.display = 'none';
+          }
+      }
+  </script>
     <!-- Jquery Core Js -->
     <script src="../assets/bundles/libscripts.bundle.js"></script>
+    <script src="../assets/bundles/dropify.bundle.js"></script>
 
     <!-- Plugin Js -->
     <script src="../assets/bundles/dataTables.bundle.js"></script>
@@ -395,7 +721,29 @@
     <script src="../js/page/index.js"></script>
     <script type="text/javascript" charset="utf8"
     src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
-  
+    <script>
+      $(function () {
+          $('.dropify').dropify();
+
+          var drEvent = $('#dropify-event').dropify();
+          drEvent.on('dropify.beforeClear', function (event, element) {
+              return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+          });
+
+          drEvent.on('dropify.afterClear', function (event, element) {
+              alert('File deleted');
+          });
+
+          $('.dropify-fr').dropify({
+              messages: {
+                  default: 'Glissez-dÃ©posez un fichier ici ou cliquez',
+                  replace: 'Glissez-dÃ©posez un fichier ou cliquez pour remplacer',
+                  remove: 'Supprimer',
+                  error: 'DÃ©solÃ©, le fichier trop volumineux'
+              }
+          });
+      });
+  </script>
     <script>
         $(".datepicker").datepicker({});
         $("#myDataTable_no_filter").addClass("nowrap").dataTable({
@@ -423,7 +771,7 @@
           {
             name: "benasari chaddar",
             category: "soft",
-            Specification: "6*5",
+            category3: "6*5",
             avl_qty: "700",
             rsd_qty: "60",
             last_modified_on: "02-07-2001",
@@ -435,7 +783,7 @@
           {
             name: "kanpuriya chaddar",
             category: "hard",
-            Specification: "5*5",
+            category3: "5*5",
             avl_qty: "560",
             rsd_qty: "90",
             last_modified_on: "02-07-2001",
@@ -447,7 +795,7 @@
           {
             name: "xyz chaddar",
             category: "soft",
-            Specification: "5*9",
+            category3: "5*9",
             avl_qty: "1000",
             rsd_qty: "60",
             last_modified_on: "02-07-2001",
@@ -459,7 +807,7 @@
           {
             name: "wtg chaddar",
             category: "soft",
-            Specification: "5*9",
+            category3: "5*9",
             avl_qty: "910",
             rsd_qty: "60",
             last_modified_on: "02-07-2001",
@@ -469,9 +817,9 @@
             column: "10",
           },
           {
-            name: "abc chaddar",
+            name: "nishant chaddar",
             category: "soft",
-            Specification: "5*9",
+            category3: "5*9",
             avl_qty: "190",
             rsd_qty: "60",
             last_modified_on: "02-07-2001",
@@ -497,7 +845,7 @@
             items_table += "<td>" + (i + 1) + "</td>";
             items_table += "<td>" + items_data[i]["name"] + "</td>";
             items_table += "<td>" + items_data[i]["category"] + "</td>";
-            items_table += "<td>" + items_data[i]["row"] +"*"+items_data[i]["column"] + "</td>";
+            items_table += "<td>" + items_data[i]["category3"]  + "</td>";
             items_table +=
               "<td>" +
               items_data[i]["category2"] +
@@ -507,6 +855,9 @@
             items_table += "<td>" + items_data[i]["rsd_qty"] + "</td>";
             items_table +=
               "<td>" +
+              
+              "<button type='button' class='btn btn-link btn-warning btn-sm text-white me-2' data-bs-dismiss='modal' data-bs-toggle='modal' data-bs-target='#OrderDetails' data-bs-placement='top' title='add line' ><i class='fa fa-list'></i></button>"
+              +
               "<button type='button' class='btn btn-link btn-success btn-sm text-white me-2' data-bs-toggle='tooltip' data-bs-placement='top' title='Manage' onclick='edit_an_item(" +
               i +
               ")'><i class='fa fa-gear'></i></button><button type='button' class='btn btn-link btn-danger btn-sm text-white' data-bs-toggle='tooltip' data-bs-placement='top' title='Delete' onclick='delete_an_item(" +
@@ -523,11 +874,12 @@
         var x = -1;
         //  -------Dynamic table---ends---
         function edit_an_item(i) {
-          $("#add_item").text("Edit Item");
+          $("#add_item").text("Edit Order");
           $("#AddItems").modal("show");
           $("#name").val(items_data[i]["name"]);
           $("#category").val(items_data[i]["category"]);
           $("#category2").val(items_data[i]["category2"]);
+          $("#category3").val(items_data[i]["category3"]);
           $("#specification").val(items_data[i]["Specification"]);
           $("#avl_qty").val(items_data[i]["avl_qty"]);
           $("#rsd_qty").val(items_data[i]["rsd_qty"]);
@@ -546,6 +898,7 @@
           var name = $("#name").val();
           var category = $("#category").val();
           var category2 = $("#category2").val();
+          var category3 = $("#category3").val();
           var specification = $("#specification").val();
           var avl_qty = $("#avl_qty").val();
           var rsd_qty = $("#rsd_qty").val();
@@ -564,6 +917,7 @@
               name: name,
               category: category,
               category2: category2,
+              category3: category3,
               Specification: specification,
               avl_qty: avl_qty,
               rsd_qty: rsd_qty,
@@ -579,6 +933,7 @@
           $("#name").val("");
           $("#category").val("");
           $("#category2").val("");
+          $("#category3").val("");
           $("#specification").val("");
           $("#avl_qty").val("");
           $("#rsd_qty").val("");
@@ -639,10 +994,11 @@
         }
   
         function change_add_item_heading() {
-          $("#add_item").text("Add Item");
+          $("#add_item").text("Add Order");
           $("#name").val("");
           $("#category").val("");
           $("#category2").val("");
+          $("#category3").val("");
           $("#specification").val("");
           $("#avl_qty").val("");
           $("#rsd_qty").val("");

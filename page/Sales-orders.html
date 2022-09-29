@@ -9,6 +9,8 @@
     <meta name="keyword" content="">
     <title>SymbioticNow - Order Management System</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
+<!-- plugin css file  -->
+<link rel="stylesheet" href="../assets/css/dropify.min.css">
 
     <!-- plugin css file  -->
     <link rel="stylesheet" href="../assets/css/dataTables.min.css">
@@ -158,106 +160,191 @@
                   <div class="modal-dialog modal-lg modal-dialog-scrollable">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title">Place Order</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title" id="add_item">Place Order</h5>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
                       </div>
-                      <div class="modal-body">
-                        <h6 class="fw-bold">Basic Information</h6>
+                      <div class="modal-body " style="overflow: auto">
                         <div class="row g-3 mb-4">
-                          <div class="col-lg-6 col-md-12">
+                          <div class="col-lg-4 col-md-12">
                             <div class="form-floating">
-                              <input type="date" class="form-control" placeholder="Order ID" />
-                              <label>Delivery date *</label>
+                              <input
+                                id="name"
+                                type="text"
+                                value=""
+                                class="form-control border-primary"
+                                placeholder="Name"
+                              />
+                              <label>Name *</label>
                             </div>
                           </div>
-                          <div class="col-lg-6 col-md-12">
+                          <div class="col-lg-4 col-md-12">
                             <div class="form-floating">
-                              <input type="text" class="form-control" placeholder="Company name" id="place_order_company_code" />
+                              <input
+                                id="category"
+                                type="text"
+                                class="form-control border-primary"
+                                placeholder="Code *"
+                              />
+                              <label>Variety *</label>
+                            </div>
+                          </div>
+
+                          <div class="col-lg-4 col-md-12">
+                            <div class="form-floating">
+                              <input
+                                id="avl_qty"
+                                type="number"
+                                class="form-control border-primary"
+                                placeholder="Cost"
+                              />
+                              <label>Price *</label>
+                            </div>
+                          </div>
+                          <div class="col-lg-4 col-md-12">
+                            <div class="form-floating">
+                              <input
+                                id="rsd_qty"
+                                type="number"
+                                class="form-control border-primary"
+                                placeholder="Price"
+                              />
+                              <label>Quantity *</label>
+                            </div>
+                          </div>
+                          <div class="col-lg-4 col-md-12">
+                            <div class="form-floating">
+                              <input
+                                type="text"
+                                id="category2"
+                                type="text"
+                                class="form-control border-primary"
+                                placeholder="Description"
+                                
+                              />
+
                               
-                              <label for="floatingSelect">Company Name</label>
-                            </div>
-                          </div>
-                          <div class="col-lg-6 col-md-12">
-                            <div class="form-floating">
-                              <input type="text" class="form-control" placeholder="Company Code" id="place_order_company_code"/>
-                              <label>Variety</label>
-                            </div>
-                          </div>
-                          <div class="col-lg-6 col-md-12">
-                            <div class="form-floating">
-                              <input type="text" class="form-control" placeholder="PACKTYPE" />
-                              <label>PACKTYPE</label>
+                              <label>Destination *</label>
                             </div>
                           </div>
                           <div class="col-lg-4 col-md-12">
                             <div class="form-floating">
-                              <select class="form-select">
-                                <option value="1">A</option>
-                                <option value="2">B</option>
-                                <option value="3">C</option>
-                                <option value="4">D</option>
-                              </select>
-                              <label for="floatingSelect">Designation</label>
+                              <input
+                                type="text"
+                                id="category3"
+                                type="text"
+                                class="form-control border-primary"
+                                placeholder="Description"
+                                
+                              />
+
+                              
+                              <label>Packtype *</label>
                             </div>
                           </div>
-  
+                         
                           <div class="col-lg-4 col-md-12">
-                            <div class="form-floating">
-                              <select class="form-select">
-                                <option value="1">5*6</option>
-                                <option value="2">6*9</option>
-                                <option value="3">7*9</option>
-                                <option value="4">7*6</option>
-                              </select>
-                              <label for="floatingSelect">Size</label>
+                            <div class="card border-primary">
+                              <div class="card-body">
+                                  <label class="form-label ">Upload Packtype Images</label>
+                                  <input type="file" class="dropify" data-allowed-file-extensions="jpg"
+                                      required>
+
+                              </div>
                             </div>
-                          </div>
-                          <div class="col-lg-4 col-md-12">
-                            <div class="form-floating">
-                              <input type="text" class="form-control" placeholder="Price" />
-                             
-                              <label for="floatingSelect">Price</label>
-                            </div>
-                          </div>
-                          <div class="
-                                col-lg-6 col-md-12
-                                d-flex
-                                justify-content-between
-                                my-4
-                              ">
-                            <div class="mx-3">Quantity</div>
-                            <div class="">
-                              <button type="button" style="color: #d80027" class="button rounded-circle"
-                                data-quantity="minus" data-field="quantity">
-                                <i class="fa fa-minus" aria-hidden="true"></i></button><input class="
-                                    input-group-field
-                                    text-center
-                                    border-0
-                                    font-weight-bold
-                                    w-50
-                                  " type="number" name="quantity" value="1" />
-                              <button type="button" style="color: #d80027" class="button rounded-circle"
-                                data-quantity="plus" data-field="quantity">
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                              </button>
-                            </div>
-                          </div>
-                          <div class="col-lg-6 col-md-12">
-                            <div class="form-floating">
-                              <input type="text" class="form-control" placeholder="Customer reference" />
-                             
-                              <label for="floatingSelect">Customer reference</label>
-                            </div>
-                          </div>
+                          </div>                          
                           
-                        </div>
+
+
+                          <div class="col-lg-8 col-md-12">
+                            
+                           
+                            <div class="form-floating">
+                              <input
+                                type="text"
+                                id="Specification"
+                                
+                                class="form-control border-primary "
+                                placeholder="5*8"
+                                required
+                                
+                              />
+
+                              
+                              <label>Size *</label>
+                            </div>
+                            <div class="form-floating">
+                              <input
+                                type="date"
+                                id="category2"
+                                
+                                class="form-control border-primary mt-2"
+                                placeholder="Description"
+                                required
+                                
+                              />
+
+                              
+                              <label>Dispatch date *</label>
+                            </div>
+                            <div class="form-floating">
+                              <select class="form-select border-primary mt-2" onchange="toggle()" id="rc">
+                                <option value="no" selected>No</option>
+                                <option value="yes">Yes</option>
+                               
+                              </select>
+
+                              
+                              <label>Reoccurring order</label>
+                            </div>
+                            <div id="Reoccurring_order" class="row m-0 p-0" style="display:none;">
+                              <div class="px-0 mt-2">
+                                <div class="form-floating ">
+                                  <input
+                                    id="avl_qty"
+                                    type="date"
+                                    class="form-control border-primary"
+                                    placeholder="Cost"
+                                  />
+                                  <label>Start Date *</label>
+                                </div>
+                              </div>
+                              <div class="px-0 mt-2">
+                                <div class="form-floating">
+                                  <input
+                                    id="rsd_qty"
+                                    type="date"
+                                    class="form-control border-primary"
+                                    placeholder="Price"
+                                  />
+                                  <label>End Date *</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                         
                       </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                      </div>
+                      <div class="modal-footer bg-light">
+                        <button
+                          type="button"
+                          class="btn btn-danger"
+                          data-bs-dismiss="modal"
+                        >
                           Close
                         </button>
-                        <button type="button" class="btn btn-primary">
-                          Submit
+                        <button
+                          onclick="submit_item()"
+                          data-bs-dismiss="modal"
+                          type="button"
+                          class="btn btn-primary"
+                          id="add-item"
+                        >
+                          Save
                         </button>
                       </div>
                     </div>
@@ -271,231 +358,399 @@
                 <div class="modal-dialog modal-lg modal-dialog-scrollable">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title">Place Order</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      <h5 class="modal-title" id="add_item">Edit Order</h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
                     </div>
-                    <div class="modal-body">
-                      <h6 class="fw-bold">Basic Information</h6>
+                    <div class="modal-body " style="overflow: auto">
                       <div class="row g-3 mb-4">
-                        <div class="col-lg-6 col-md-12">
+                        <div class="col-lg-4 col-md-12">
                           <div class="form-floating">
-                            <input type="date" class="form-control" placeholder="Order ID" />
-                            <label>Delivery date *</label>
-                          </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12">
-                          <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Company name" id="place_order_company_code" />
-                            
-                            <label for="floatingSelect">Company Name</label>
-                          </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12">
-                          <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Company Code" id="place_order_company_code"/>
-                            <label>Variety</label>
-                          </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12">
-                          <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="PACKTYPE" />
-                            <label>PACKTYPE</label>
+                            <input
+                              id="name"
+                              type="text"
+                              value=""
+                              class="form-control border-primary"
+                              placeholder="Name"
+                            />
+                            <label>Name *</label>
                           </div>
                         </div>
                         <div class="col-lg-4 col-md-12">
                           <div class="form-floating">
-                            <select class="form-select">
-                              <option value="1">A</option>
-                              <option value="2">B</option>
-                              <option value="3">C</option>
-                              <option value="4">D</option>
-                            </select>
-                            <label for="floatingSelect">Designation</label>
+                            <input
+                              id="category"
+                              type="text"
+                              class="form-control border-primary"
+                              placeholder="Code *"
+                            />
+                            <label>Variety *</label>
                           </div>
                         </div>
 
                         <div class="col-lg-4 col-md-12">
                           <div class="form-floating">
-                            <select class="form-select">
-                              <option value="1">5*6</option>
-                              <option value="2">6*9</option>
-                              <option value="3">7*9</option>
-                              <option value="4">7*6</option>
-                            </select>
-                            <label for="floatingSelect">Size</label>
+                            <input
+                              id="avl_qty"
+                              type="number"
+                              class="form-control border-primary"
+                              placeholder="Cost"
+                            />
+                            <label>Price *</label>
                           </div>
                         </div>
                         <div class="col-lg-4 col-md-12">
                           <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Price" />
-                           
-                            <label for="floatingSelect">Price</label>
+                            <input
+                              id="rsd_qty"
+                              type="number"
+                              class="form-control border-primary"
+                              placeholder="Price"
+                            />
+                            <label>Quantity *</label>
                           </div>
                         </div>
-                        <div class="
-                              col-lg-6 col-md-12
-                              d-flex
-                              justify-content-between
-                              my-4
-                            ">
-                          <div class="mx-3">Quantity</div>
-                          <div class="">
-                            <button type="button" style="color: #d80027" class="button rounded-circle"
-                              data-quantity="minus" data-field="quantity">
-                              <i class="fa fa-minus" aria-hidden="true"></i></button><input class="
-                                  input-group-field
-                                  text-center
-                                  border-0
-                                  font-weight-bold
-                                  w-50
-                                " type="number" name="quantity" value="1" />
-                            <button type="button" style="color: #d80027" class="button rounded-circle"
-                              data-quantity="plus" data-field="quantity">
-                              <i class="fa fa-plus" aria-hidden="true"></i>
-                            </button>
-                          </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12">
+                        <div class="col-lg-4 col-md-12">
                           <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Customer reference" />
-                           
-                            <label for="floatingSelect">Customer reference</label>
+                            <input
+                              type="text"
+                              id="category2"
+                              type="text"
+                              class="form-control border-primary"
+                              placeholder="Description"
+                              
+                            />
+
+                            
+                            <label>Destination *</label>
                           </div>
                         </div>
+                        <div class="col-lg-4 col-md-12">
+                          <div class="form-floating">
+                            <input
+                              type="text"
+                              id="category3"
+                              type="text"
+                              class="form-control border-primary"
+                              placeholder="Description"
+                              
+                            />
+
+                            
+                            <label>Packtype *</label>
+                          </div>
+                        </div>
+                       
+                        <div class="col-lg-4 col-md-12">
+                          <div class="card border-primary">
+                            <div class="card-body">
+                                <label class="form-label ">Upload Packtype Images</label>
+                                <input type="file" class="dropify" data-allowed-file-extensions="jpg"
+                                    required>
+
+                            </div>
+                          </div>
+                        </div>                          
                         
-                      </div>
+
+
+                        <div class="col-lg-8 col-md-12">
+                          
+                         
+                          <div class="form-floating">
+                            <input
+                              type="text"
+                              id="Specification"
+                              
+                              class="form-control border-primary "
+                              placeholder="5*8"
+                              required
+                              
+                            />
+
+                            
+                            <label>Size *</label>
+                          </div>
+                          <div class="form-floating">
+                            <input
+                              type="date"
+                              id="category2"
+                              
+                              class="form-control border-primary mt-2"
+                              placeholder="Description"
+                              required
+                              
+                            />
+
+                            
+                            <label>Dispatch date *</label>
+                          </div>
+                          <div class="form-floating">
+                            <select class="form-select border-primary mt-2" onchange="toggle()" id="rc">
+                              <option value="no" selected>No</option>
+                              <option value="yes">Yes</option>
+                             
+                            </select>
+
+                            
+                            <label>Reoccurring order</label>
+                          </div>
+                          <div id="Reoccurring_order" class="row m-0 p-0" style="display:none;">
+                            <div class="px-0 mt-2">
+                              <div class="form-floating ">
+                                <input
+                                  id="avl_qty"
+                                  type="date"
+                                  class="form-control border-primary"
+                                  placeholder="Cost"
+                                />
+                                <label>Start Date *</label>
+                              </div>
+                            </div>
+                            <div class="px-0 mt-2">
+                              <div class="form-floating">
+                                <input
+                                  id="rsd_qty"
+                                  type="date"
+                                  class="form-control border-primary"
+                                  placeholder="Price"
+                                />
+                                <label>End Date *</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                       
                     </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    </div>
+                    <div class="modal-footer bg-light">
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        data-bs-dismiss="modal"
+                      >
                         Close
                       </button>
-                      <button type="button" class="btn btn-primary">
-                        Submit
+                      <button
+                        onclick="submit_item()"
+                        data-bs-dismiss="modal"
+                        type="button"
+                        class="btn btn-primary"
+                        id="add-item"
+                      >
+                        Save
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="modal fade" id="AddCompany" tabindex="-1" aria-labelledby="AddCompany" aria-hidden="true">
+              <div class="modal fade" id="addOrderline" tabindex="-1" aria-labelledby="addOrderline" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-scrollable">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title">Company Details</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      <h5 class="modal-title" id="add_item">Add Order Line</h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
                     </div>
-                    <div class="modal-body">
-                      <h6 class="fw-bold">Basic Information</h6>
+                    <div class="modal-body " style="overflow: auto">
                       <div class="row g-3 mb-4">
-                        <div class="col-lg-6 col-md-12">
+                        <div class="col-lg-4 col-md-12">
                           <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Company Name" />
-                            <label>Company Name</label>
+                            <input
+                              id="name"
+                              type="text"
+                              value=""
+                              class="form-control border-primary"
+                              placeholder="Name"
+                            />
+                            <label>Name *</label>
                           </div>
                         </div>
-                        <div class="col-lg-6 col-md-12">
+                        <div class="col-lg-4 col-md-12">
                           <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Company Code" />
-                            <label>Company Code</label>
+                            <input
+                              id="category"
+                              type="text"
+                              class="form-control border-primary"
+                              placeholder="Code *"
+                            />
+                            <label>Variety *</label>
                           </div>
                         </div>
-  
-                        <h6 class="fw-bold">Address:</h6>
-                        <div class="col-lg-6 col-md-12">
+
+                        <div class="col-lg-4 col-md-12">
                           <div class="form-floating">
-                            <select class="form-select">
-                              <option value="1">Home</option>
-                              <option value="2">Office</option>
-                              <option value="3">Others</option>
+                            <input
+                              id="avl_qty"
+                              type="number"
+                              class="form-control border-primary"
+                              placeholder="Cost"
+                            />
+                            <label>Price *</label>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                          <div class="form-floating">
+                            <input
+                              id="rsd_qty"
+                              type="number"
+                              class="form-control border-primary"
+                              placeholder="Price"
+                            />
+                            <label>Quantity *</label>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                          <div class="form-floating">
+                            <input
+                              type="text"
+                              id="category2"
+                              type="text"
+                              class="form-control border-primary"
+                              placeholder="Description"
+                              
+                            />
+
+                            
+                            <label>Destination *</label>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                          <div class="form-floating">
+                            <input
+                              type="text"
+                              id="category3"
+                              type="text"
+                              class="form-control border-primary"
+                              placeholder="Description"
+                              
+                            />
+
+                            
+                            <label>Packtype *</label>
+                          </div>
+                        </div>
+                       
+                        <div class="col-lg-4 col-md-12">
+                          <div class="card border-primary">
+                            <div class="card-body">
+                                <label class="form-label ">Upload Packtype Images</label>
+                                <input type="file" class="dropify" data-allowed-file-extensions="jpg"
+                                    required>
+
+                            </div>
+                          </div>
+                        </div>                          
+                        
+
+
+                        <div class="col-lg-8 col-md-12">
+                          
+                         
+                          <div class="form-floating">
+                            <input
+                              type="text"
+                              id="Specification"
+                              
+                              class="form-control border-primary "
+                              placeholder="5*8"
+                              required
+                              
+                            />
+
+                            
+                            <label>Size *</label>
+                          </div>
+                          <div class="form-floating">
+                            <input
+                              type="date"
+                              id="category2"
+                              
+                              class="form-control border-primary mt-2"
+                              placeholder="Description"
+                              required
+                              
+                            />
+
+                            
+                            <label>Dispatch date *</label>
+                          </div>
+                          <div class="form-floating">
+                            <select class="form-select border-primary mt-2" onchange="toggle()" id="rc">
+                              <option value="no" selected>No</option>
+                              <option value="yes">Yes</option>
+                             
                             </select>
-                            <label for="floatingSelect">Type</label>
+
+                            
+                            <label>Reoccurring order</label>
+                          </div>
+                          <div id="Reoccurring_order" class="row m-0 p-0" style="display:none;">
+                            <div class="px-0 mt-2">
+                              <div class="form-floating ">
+                                <input
+                                  id="avl_qty"
+                                  type="date"
+                                  class="form-control border-primary"
+                                  placeholder="Cost"
+                                />
+                                <label>Start Date *</label>
+                              </div>
+                            </div>
+                            <div class="px-0 mt-2">
+                              <div class="form-floating">
+                                <input
+                                  id="rsd_qty"
+                                  type="date"
+                                  class="form-control border-primary"
+                                  placeholder="Price"
+                                />
+                                <label>End Date *</label>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                        <div class="col-lg-6 col-md-12">
-                          <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Street" />
-                            <label>Street</label>
-                          </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12">
-                          <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Area" />
-                            <label>Area</label>
-                          </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12">
-                          <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Landmark" />
-                            <label>Landmark</label>
-                          </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12">
-                          <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="City" />
-                            <label>City</label>
-                          </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12">
-                          <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="State" />
-                            <label>State</label>
-                          </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12">
-                          <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Country" />
-                            <label>Country</label>
-                          </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12">
-                          <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Zip Code" />
-                            <label>Zip Code</label>
-                          </div>
-                        </div>
-                        <h6 class="fw-bold">Contact Person:</h6>
-                        <div class="col-lg-6 col-md-12">
-                          <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Phone" />
-                            <label>Phone</label>
-                          </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12">
-                          <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Mobile" />
-                            <label>Mobile</label>
-                          </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12">
-                          <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Email-id" />
-                            <label>Email-id</label>
-                          </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12">
-                          <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Designation" />
-                            <label>Designation</label>
-                          </div>
-                        </div>
-                      </div>
+                       
                     </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    </div>
+                    <div class="modal-footer bg-light">
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        data-bs-dismiss="modal"
+                        data-bs-toggle="modal" data-bs-target="#OrderDetails"
+                      >
                         Close
                       </button>
-                      <button type="button" class="btn btn-primary">
-                        Submit
+                      <button
+                        
+                      data-bs-dismiss="modal"
+                      data-bs-toggle="modal" data-bs-target="#OrderDetails"
+                        type="button"
+                        class="btn btn-warning"
+                        id="add-item"
+                      >
+                        Save
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
+              
              
               <div class="modal fade" id="OrderDetails" tabindex="-1" aria-labelledby="Order Details" aria-hidden="true">
                 <div class="modal-dialog modal-xl modal-dialog-scrollable">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title">Order Details</h5>
+                      <h5 class="modal-title">Details</h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -514,55 +769,67 @@
                             </div>
                             <div class="card-body">
                                 <div class="row mb-4">
-                                    <div class="col-sm-6">
-                                        <h5 class="mb-3" style="font-size: 17px;
+                                    <div class="col-sm-5">
+                                        <h3 class="mb-3 fw-bold" style="font-size: 17px;
                                         line-height: 26px;
                                         color: #3d405c;
                                         margin: 0px 0px 15px 0px;
-                                        font-family: 'Circular Std Medium'">Company Details:</h5>
-                                        <h3 class=" mb-1" style="font-size: 19px; color: #3d405c !important;">Colour Concepts</h3>
+                                        ">Company Details:</h3>
+                                        <h6 class="fw-normal mb-1" style=" color: #3d405c !important;">Colour Concepts</h6>
                                         <div>Company Code: <span>CCR</span></div>
                                         <div>Customer Name: <span>Krittika Barnwal</span></div>
                                         <div>Email: <span>contact@bbbootstrap.com</span></div>
                                         <div>Phone: <span>+91 7784657392</span></div>
                                     </div>
-                                    <div class="col-sm-6">
-                                      <h5 class="mb-3" style="font-size: 17px;
+                                    <div class="col-sm-5">
+                                      <h3 class="mb-3 fw-bolder" style="font-size: 17px;
                                       line-height: 26px;
                                       color: #3d405c;
                                       margin: 0px 0px 15px 0px;
-                                      font-family: 'Circular Std Medium'">Order Details:</h5>
-                                        <h5 class="text-dark mb-1"  style="font-size: 15px; color: #3d405c !important;">Order Status:<span class="badge text-light bg-dark mx-2">Cutting</span></h5>
-                                        <div>Quantity: <span>25</span> sets</div>
-                                        <div>Cutting Date: <span>12-05-2022</span></div>
-                                        <div>Production Start Date: <span>12-05-2022</span></div>
-                                        <div>ETA Date: <span>12-05-2022</span></div>
-                                        <div>Collection Method: <span>Delivery</span> </div>
+                                      ">Order Details:</h3>
+                                        
+                                        <div>Dispatch Date: <span>12-05-2022</span></div>
+                                        <div>Reoccurring order: <span>Yes</span> </div>
+                                        <div> Start Date: <span>12-05-2022</span></div>
+                                        <div>end Date: <span>12-06-2022</span></div>
                                     </div>
+                                    <div class="col-12 col-lg-2">
+                                      <h3 class="mb-3 fw-bold" style="font-size: 17px;
+                                      line-height: 26px;
+                                      color: #3d405c;
+                                      margin: 0px 0px 15px 0px;
+                                      ">Order Status:</h3>
+                                      <!-- <h6 class=" text-dark mb-1"></h6> -->
+                                        <select class="form-select border-primary" id="rc">
+                                          <option value="1" selected>New Order</option>
+                                          <option value="2">Pendding</option>
+                                          <option value="3">Completed</option>
+                                         
+                                        </select>
+                                      <button type="button" data-bs-toggle="modal" data-bs-target="#addOrderline" data-bs-dismiss="modal" class="btn text-white bg-success mt-2 mt-lg-5 px-4">Add Order Line</button>
+                                      </div>
+
                                 </div>
                                 <div class="table-responsive-sm my-4">
                                   <h6><strong>Order Details</strong></h6>
                                     <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th class="center">#</th>
-                                                <th>Fabric</th>
-                                                <th>Category</th>
-                                                <th>Quantity</th>
-                                                <th class="right">Rack</th>
-                                                <th class="center">Row</th>
-                                                <th class="right">Column</th>
-                                            </tr>
-                                        </thead>
+                                        
+  <thead><tr><th>#</th><th>Date</th><th>Company</th><th>Variety</th><th>Packtype</th><th>Quantity</th><th>Status</th><th>Destination</th><th>Size</th><th>Price</th><th class='text-center'>Action</th></tr><thead>
+
                                         <tbody>
                                           <tr>
                                                 <td class="center">1</td>
-                                                <td class="left strong">Filigree Harris Delta</td>
+                                                <td class="left strong">Harris Delta</td>
                                                 <td class="left">Pleated</td>
                                                 <td class="right">15</td>
                                                 <td class="center">10</td>
                                                 <td class="center">10</td>
-                                                <td class="right">15</td>
+                                                <td class="center">10</td>
+                                                <td class="center">Surat</td>
+                                                <td class="center">10</td>
+                                                <td class="center">1600</td>
+                                                <td class="center"><div class="text-center"><button type="button"class="btn btn-link btn-success text-white operator_hide" data-bs-toggle="modal" data-bs-target="#addOrderline" data-bs-placement="top" title="Edit"><i class="fa fa-gear"></i></button>
+                                                  <button  type="button" class=" btn btn-link btn-danger text-white ms-1 operator_hide" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" ><i class="fa fa-trash"></i></button></div></td>
                                             </tr>
                                            
                                         </tbody>
@@ -576,9 +843,9 @@
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
                             Close
                           </button>
-                           <button type="button" data-bs-toggle="modal" data-bs-target="#OrderCalculation" data-bs-dismiss="modal"
+                           <button type="button"  data-bs-dismiss="modal"
                         class="btn text-white bg-success operator_hide" id='accept-order'>
-                        Approve orders
+                        Save
                       </button>
                      
                     </div>
@@ -632,9 +899,43 @@
   <script src="../js/adminPage/inward-fabric.js"></script>
   <script src="../js/adminPage/create-jobs.js"></script>
   <script src="../js/adminPage/edit-order.js"></script>
+  <script src="../assets/bundles/dropify.bundle.js"></script>
   <script type="text/javascript" charset="utf8"
     src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
-  
+    <script>
+      $(function () {
+          $('.dropify').dropify();
+
+          var drEvent = $('#dropify-event').dropify();
+          drEvent.on('dropify.beforeClear', function (event, element) {
+              return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+          });
+
+          drEvent.on('dropify.afterClear', function (event, element) {
+              alert('File deleted');
+          });
+
+          $('.dropify-fr').dropify({
+              messages: {
+                  default: 'Glissez-dÃ©posez un fichier ici ou cliquez',
+                  replace: 'Glissez-dÃ©posez un fichier ou cliquez pour remplacer',
+                  remove: 'Supprimer',
+                  error: 'DÃ©solÃ©, le fichier trop volumineux'
+              }
+          });
+      });
+  </script>
+   <script>
+    function toggle() {
+        var cont = document.getElementById('Reoccurring_order');
+        if (cont.style.display == 'none') {
+            cont.style.display = 'block';
+        }
+        else {
+            cont.style.display = 'none';
+        }
+    }
+</script>
     <script>
         $('#myDataTable_no_filter')
             .addClass('nowrap')
